@@ -9,12 +9,12 @@ class Level1 < Chingu::GameState
 
     self.viewport.game_area = [0, 0, 3200, 480]
     @pixelate = Ashton::Shader.new fragment: :pixelate, uniforms: {
-        pixel_size: @pixel_size = 2,
+        pixel_size: @pixel_size = 1,
     }
 
 
     @bloom = Ashton::Shader.new fragment: :bloom
-    @bloom.glare_size = 0.001
+    @bloom.glare_size = 0.010
     @bloom.power = 0.2
 
 
