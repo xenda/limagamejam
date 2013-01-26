@@ -6,6 +6,7 @@ class Bat < GameObject
 
   def setup
 
+    @speed = 2
   	@hunting = false
     @state = :sleeping
     @direction = :right
@@ -31,12 +32,23 @@ class Bat < GameObject
 
 
   def update
-  	if @heroReference
-      self.x += @heroReference.x * 0.007
-      self.y += @heroReference.y * 0.007
-      #puts @heroReference.x, self.x
+  	if @heroReference      
 
+      yDistance = @heroReference.y - self.y;
+      xDistance = @heroReference.x - self.x;
 
+      radian = Math.atan2(yDistance, xDistance)
+
+      self.x += Math.cos(radian) * @speed;
+      self.y += Math.sin(radian) * @speed;
+
+      #self.angle = radian * 180 / Math::PI;
+
+      if self.x < @heroReference.x
+        @state = :fly_right
+      else
+        @state = :fly_left
+      end
     end
 
     case @state
@@ -55,8 +67,5 @@ class Bat < GameObject
   
   def bat_fly
   	@state = :fly_right
-
-  	#puts @hunting
-    puts @heroReference
   end
 end
