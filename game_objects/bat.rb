@@ -9,9 +9,10 @@ class Bat < GameObject
   	@hunting = false
     @state = :fly_right
     @direction = :right
-    @max_left = @x - 50
-    @max_right = @x + 50
-    @towards = rand(1) == 0 ? 1 : -1 
+    @bounding_x = [@x - 35+rand(10), @x + 35+rand(10)]
+    @bounding_y = [@y - 25+rand(5), @y + 25 + rand(5)]
+    @towards_x = rand(1) == 0 ? 1 : -1
+    @towards_y = rand(1) == 0 ? 1 : -1
 
     @animations = Animation.new(:file => "media/bat.png", :size => [50,46], :delay => 120);
     @animations.frame_names = {
@@ -39,19 +40,23 @@ class Bat < GameObject
   #     self.y += @heroReference.y * 0.007
   #   end
 
-    if @x < @max_left
+    if @x < @bounding_x.first
       @direction = :right
-      @towards = 1
+      @towards_x = 1
       @state = :fly_right
     end
 
-    if @x > @max_right
+    if @x > @bounding_x.last
       @direction = :left
-      @towards = -1
+      @towards_x = -1
       @state = :fly_left
     end
 
-    move_x(1, @towards)
+    @towards_y = 1 if @y < @bounding_y.first
+    @towards_y = -1 if @y > @bounding_y.first
+
+    move_x(1, @towards_x)
+    # move_y(0.5, @towards_y)
 
     case @state
   		when :sleeping
@@ -64,6 +69,11 @@ class Bat < GameObject
   def move_x(step, direction)
     move(step*direction, 0)
   end
+
+  def move_y(step, direction)
+    move(0, step*direction)
+  end
+
 
   def move(x, y)
     self.x += x

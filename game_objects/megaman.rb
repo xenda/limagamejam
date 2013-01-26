@@ -140,10 +140,13 @@ class Megaman < Chingu::GameObject
       end
     end
 
-
     self.each_collision(PassableBox) do |me, stone_wall|
         @jumping = false
         # me.y = stone_wall.bb.top-1
+    end
+
+    self.each_collision(GoalTree) do |me, tree|
+      @jumping = true
     end
 
 
