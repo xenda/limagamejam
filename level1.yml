@@ -72,17 +72,17 @@
     :factor_y: 1.0
     :alpha: 255
 - Car:
-    :x: 768.0
+    :x: 576.0
     :y: 416.0
-    :angle: 14925
+    :angle: 0
     :zorder: 100
     :factor_x: 1.0
     :factor_y: 1.0
     :alpha: 255
 - Car:
-    :x: 960.0
-    :y: 320.0
-    :angle: 14865
+    :x: 1120.0
+    :y: 416.0
+    :angle: 0
     :zorder: 100
     :factor_x: 1.0
     :factor_y: 1.0
@@ -106,6 +106,30 @@
 - Bat:
     :x: 743.0
     :y: -63.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Car:
+    :x: 702.0
+    :y: 408.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Car:
+    :x: 832.0
+    :y: 408.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Bat:
+    :x: 256.0
+    :y: 96.0
     :angle: 0
     :zorder: 100
     :factor_x: 1.0

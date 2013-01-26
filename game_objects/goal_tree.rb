@@ -1,6 +1,15 @@
 class GoalTree < GameObject
-  trait :bounding_box, :debug => true, :scale => 1.5
+  trait :bounding_box, :debug => true
   trait :collision_detection
+
+  def self.solid
+    all.select { |block| block.alpha == 255 }
+  end
+
+  def self.inside_viewport
+    all.select { |block| block.game_state.viewport.inside?(block) }
+  end
+
 
   def setup
     @image = Image["old_tree.png"]
