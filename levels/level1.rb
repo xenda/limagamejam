@@ -9,12 +9,12 @@ class Level1 < Chingu::GameState
 
     self.viewport.game_area = [0, 0, 3200, 480]
     @pixelate = Ashton::Shader.new fragment: :pixelate, uniforms: {
-        pixel_size: @pixel_size = 2,
+        pixel_size: @pixel_size = 1,
     }
 
 
     @bloom = Ashton::Shader.new fragment: :bloom
-    @bloom.glare_size = 0.001
+    @bloom.glare_size = 0.010
     @bloom.power = 0.2
 
 
@@ -82,48 +82,12 @@ class Level1 < Chingu::GameState
 
   def draw
     @font.draw_rel("MATUSITA", $window.width / 2 - 130, 60, 500, 0, 0.5, 1, 1, 0xccfc8e2e)
-      post_process(@bloom, @pixelate) do
+      $window.post_process(@pixelate, @bloom) do
         @parallax_collection.each do |parallax|
           parallax.draw
         end
         super
       end
   end
-
-  def post_process(*shaders)
-
-      raise ArgumentError, "Block required" unless block_given?
-      raise TypeError, "Can only process with Shaders" unless shaders.all? {|s| s.is_a? Ashton::Shader }
-
-      # In case no shaders are passed, just run the contents of the block.
-      unless shaders.size > 0
-        yield
-        return
-      end
-
-      buffer1 = $window.primary_buffer
-      buffer1.clear
-
-      # Allow user to draw into a buffer, rather than the window.
-      buffer1.render do
-        yield
-      end
-
-      if shaders.size > 1
-        buffer2 = $window.secondary_buffer # Don't need to clear, since we will :replace.
-
-        # Draw into alternating buffers, applying each shader in turn.
-        shaders[0...-1].each do |shader|
-          buffer1, buffer2 = buffer2, buffer1
-          buffer1.render do
-            buffer2.draw 0, 0, nil, shader: shader, mode: :replace
-          end
-        end
-      end
-
-      # Draw the buffer directly onto the window, utilising the (last) shader.
-      buffer1.draw 0, 0, nil, shader: shaders.last
-    end
-
 
 end
