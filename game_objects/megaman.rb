@@ -8,7 +8,8 @@ class Megaman < Chingu::GameObject
     self.input = {
       :holding_left => :move_to_left,
       :holding_right => :move_to_right,
-      :holding_up => :jump
+      :holding_up => :jump,
+      :holding_left_control => :add_multiplier
     }
 
     @state = :normal
@@ -45,6 +46,10 @@ class Megaman < Chingu::GameObject
 
   def current_animation
     @animations[@state][@direction]
+  end
+
+  def add_multiplier
+    puts "Hi"
   end
 
   def move_to_left
