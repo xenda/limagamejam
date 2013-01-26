@@ -8,7 +8,9 @@ class Megaman < Chingu::GameObject
     self.input = {
       :holding_left => :move_to_left,
       :holding_right => :move_to_right,
-      :holding_up => :jump
+      :holding_up => :jump,
+      :holding_left_control => :add_multiplier,
+      :released_left_control => :remove_multiplier
     }
 
     @state = :normal
@@ -19,11 +21,11 @@ class Megaman < Chingu::GameObject
     @damage_per_turn = 1
 
     @animations = {}
-    @animations[:normal] = Animation.new(:file => "media/megaman-sprites-normal.png", :size => [72,72], :delay => 200);
-    @animations[:normal].frame_names = { :left => 0..1, :right => 2..3 }
+    @animations[:normal] = Animation.new(:file => "media/char_001_sprite.png", :size => [72,72], :delay => 200);
+    @animations[:normal].frame_names = { :left => 0..3, :right => 4..5 }
 
-    @animations[:run] = Animation.new(:file => "media/megaman-sprites-run.png", :size => [72,72], :delay => 80);
-    @animations[:run].frame_names = { :left => 0..2, :right => 3..5 }
+    @animations[:run] = Animation.new(:file => "media/char_001_sprite.png", :size => [72,70], :delay => 100);
+    @animations[:run].frame_names = { :left => 0..3, :right => 4..7 }
 
     @animations[:jump] = Animation.new(:file => "media/megaman-sprites-jump.png", :size => [90,90]);
     @animations[:jump].frame_names = { :left => 0..1, :right => 2..3 }
@@ -47,6 +49,15 @@ class Megaman < Chingu::GameObject
     @animations[@state][@direction]
   end
 
+  def add_multiplier
+    @multiplier = 2
+    @health -= 0.10
+  end
+
+  def remove_multiplier
+    @multiplier = 1
+  end
+
   def move_to_left
     if @jumping
       @state = :jump
@@ -57,7 +68,7 @@ class Megaman < Chingu::GameObject
     @direction = :left
 
     if self.x >= 30
-      move(-5, 0)
+      move(-5*@multiplier, 0)
     end
     #@image = Image["doctor-left.png"]
   end
@@ -72,7 +83,7 @@ class Megaman < Chingu::GameObject
     @direction = :right
 
     if self.x < 3200
-      move(5, 0)
+      move(5*@multiplier, 0)
     end
     #@image = Image["doctor-right.png"]
   end
@@ -82,7 +93,7 @@ class Megaman < Chingu::GameObject
 
     @state = :jump
     @jumping = true
-    self.velocity_y = -10
+    self.velocity_y = -10*(@multiplier > 1 ? @multiplier/2 : @multiplier)
   end
 
   def move(x, y)
@@ -118,7 +129,7 @@ class Megaman < Chingu::GameObject
   end
 
   def take_damage
-    @health -= @damage_per_turn * @multiplier
+    @health -= @damage_per_turn
   end
 
   def update
@@ -133,7 +144,7 @@ class Megaman < Chingu::GameObject
         @image = @animations[:jump][@direction][index_for_right]
       end
     else
-      @image = @animations[@state][@direction].next
+      @image = @animations[@state][@direction].next!
     end
 
   
@@ -150,6 +161,11 @@ class Megaman < Chingu::GameObject
         end
       end
     end
+
+    self.each_collision(GoalTree) do |me, tree|
+      @health += 0.05 unless @health >= 100
+    end
+
 
     self.each_collision(PassableBox) do |me, stone_wall|
         @jumping = false

@@ -17,7 +17,7 @@ class Level1 < Level
     super
 
     @hero.each_collision(GoalTree) do |me, tree|
-      me.jumping = true
+      # me.jumping = true
       puts "Hi"
       # switch_game_state(Level1)
     end
