@@ -23,6 +23,12 @@ class Level1 < Chingu::GameState
     @doctor = Doctor.create(:x => 100, :y => 460)
     @floor = Floor.create(:x => 0, :y => 480)
 
+    @boxes = []
+
+    5.times do |i|
+      @boxes << QuestionBox.create(:x => (i + 1) * 250, :y => 380)
+    end
+
     @car = Car.create(:x => 600, :y => 440)
 
     @font = Gosu::Font.new $window, Gosu::default_font_name, 40
@@ -41,12 +47,19 @@ class Level1 < Chingu::GameState
     @second_parallax.camera_y = self.viewport.y - 610
     @second_parallax.update
 
-    @doctor.each_collision(Car) do |player, evil_object|
-      distance = (player.x - evil_object.x).abs
+    @doctor.each_collision(Car) do |player, car|
+      distance = (player.x - car.x).abs
 
-      if (player.y == evil_object.y) && (distance < evil_object.width / 2)
-        puts [distance, evil_object.width / 2]
+      if (player.y == car.y) && (distance < car.width / 2)
+        puts [distance, car.width / 2]
         player.die
+      end
+    end
+
+    @doctor.each_collision(QuestionBox) do |player, question_box|
+      if player.is_jumping?
+        player.velocity_y = 0
+        player.y = question_box.bb.top
       end
     end
   end

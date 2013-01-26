@@ -53,6 +53,10 @@ class Doctor < Chingu::GameObject
     self.velocity_y = -10
   end
 
+  def is_jumping?
+    @jumping
+  end
+
   def update
     self.each_collision(Floor) do |me, block|
       if self.velocity_y < 0
