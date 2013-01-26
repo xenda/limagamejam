@@ -1,3 +1,5 @@
+require 'ashton'
+
 class Level1 < Chingu::GameState
 
   traits :viewport, :timer
@@ -6,6 +8,16 @@ class Level1 < Chingu::GameState
     super(options)
 
     self.viewport.game_area = [0, 0, 3200, 480]
+    @pixelate = Ashton::Shader.new fragment: :pixelate, uniforms: {
+        pixel_size: @pixel_size = 2,
+    }
+
+
+    @bloom = Ashton::Shader.new fragment: :bloom
+    @bloom.glare_size = 0.001
+    @bloom.power = 0.2
+
+
 
     @parallax_collection = []
 
@@ -36,6 +48,7 @@ class Level1 < Chingu::GameState
 
   def update
     super
+    $gosu_blocks.clear if defined? $gosu_blocks # Workaround for Gosu bug (0.7.45)
 
     self.viewport.center_around(@doctor)
 
@@ -69,11 +82,48 @@ class Level1 < Chingu::GameState
 
   def draw
     @font.draw_rel("MATUSITA", $window.width / 2 - 130, 60, 500, 0, 0.5, 1, 1, 0xccfc8e2e)
-
-    @parallax_collection.each do |parallax|
-      parallax.draw
-    end
-
-    super
+      @bloom.enable do
+        @parallax_collection.each do |parallax|
+          parallax.draw
+        end
+        super
+      end
   end
+
+  # def post_process(*shaders)
+  #     puts shaders.map)(&)
+  #     raise ArgumentError, "Block required" unless block_given?
+  #     raise TypeError, "Can only process with Shaders" unless shaders.all? {|s| s.is_a? Ashton::Shader }
+
+  #     # In case no shaders are passed, just run the contents of the block.
+  #     unless shaders.size > 0
+  #       yield
+  #       return
+  #     end
+
+  #     buffer1 = primary_buffer
+  #     buffer1.clear
+
+  #     # Allow user to draw into a buffer, rather than the window.
+  #     buffer1.render do
+  #       yield
+  #     end
+
+  #     if shaders.size > 1
+  #       buffer2 = secondary_buffer # Don't need to clear, since we will :replace.
+
+  #       # Draw into alternating buffers, applying each shader in turn.
+  #       shaders[0...-1].each do |shader|
+  #         buffer1, buffer2 = buffer2, buffer1
+  #         buffer1.render do
+  #           buffer2.draw 0, 0, nil, shader: shader, mode: :replace
+  #         end
+  #       end
+  #     end
+
+  #     # Draw the buffer directly onto the window, utilising the (last) shader.
+  #     buffer1.draw 0, 0, nil, shader: shaders.last
+  #   end
+
+
 end
