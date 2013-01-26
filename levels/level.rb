@@ -54,7 +54,7 @@ class Level < Chingu::GameState
    end
 
   def edit
-    push_game_state(GameStates::Edit.new(:grid => [32,32], :classes => [ GoalTree, Car, PassableBox, Floor, Bat]))
+    push_game_state(GameStates::Edit.new(:grid => [72,72], :classes => [ GoalTree, EvilTree, Car, PassableBox, Floor, Bat]))
   end
 
    # def debug
@@ -94,7 +94,7 @@ class Level < Chingu::GameState
         player.velocity_y = +2
       end
     end
-    
+
     @lifebar.x = self.viewport.x + 10;
   end
 
