@@ -82,7 +82,7 @@ class Level1 < Chingu::GameState
 
   def draw
     @font.draw_rel("MATUSITA", $window.width / 2 - 130, 60, 500, 0, 0.5, 1, 1, 0xccfc8e2e)
-      @bloom.enable do
+      post_process(@bloom, @pixelate) do
         @parallax_collection.each do |parallax|
           parallax.draw
         end
@@ -90,40 +90,40 @@ class Level1 < Chingu::GameState
       end
   end
 
-  # def post_process(*shaders)
-  #     puts shaders.map)(&)
-  #     raise ArgumentError, "Block required" unless block_given?
-  #     raise TypeError, "Can only process with Shaders" unless shaders.all? {|s| s.is_a? Ashton::Shader }
+  def post_process(*shaders)
 
-  #     # In case no shaders are passed, just run the contents of the block.
-  #     unless shaders.size > 0
-  #       yield
-  #       return
-  #     end
+      raise ArgumentError, "Block required" unless block_given?
+      raise TypeError, "Can only process with Shaders" unless shaders.all? {|s| s.is_a? Ashton::Shader }
 
-  #     buffer1 = primary_buffer
-  #     buffer1.clear
+      # In case no shaders are passed, just run the contents of the block.
+      unless shaders.size > 0
+        yield
+        return
+      end
 
-  #     # Allow user to draw into a buffer, rather than the window.
-  #     buffer1.render do
-  #       yield
-  #     end
+      buffer1 = $window.primary_buffer
+      buffer1.clear
 
-  #     if shaders.size > 1
-  #       buffer2 = secondary_buffer # Don't need to clear, since we will :replace.
+      # Allow user to draw into a buffer, rather than the window.
+      buffer1.render do
+        yield
+      end
 
-  #       # Draw into alternating buffers, applying each shader in turn.
-  #       shaders[0...-1].each do |shader|
-  #         buffer1, buffer2 = buffer2, buffer1
-  #         buffer1.render do
-  #           buffer2.draw 0, 0, nil, shader: shader, mode: :replace
-  #         end
-  #       end
-  #     end
+      if shaders.size > 1
+        buffer2 = $window.secondary_buffer # Don't need to clear, since we will :replace.
 
-  #     # Draw the buffer directly onto the window, utilising the (last) shader.
-  #     buffer1.draw 0, 0, nil, shader: shaders.last
-  #   end
+        # Draw into alternating buffers, applying each shader in turn.
+        shaders[0...-1].each do |shader|
+          buffer1, buffer2 = buffer2, buffer1
+          buffer1.render do
+            buffer2.draw 0, 0, nil, shader: shader, mode: :replace
+          end
+        end
+      end
+
+      # Draw the buffer directly onto the window, utilising the (last) shader.
+      buffer1.draw 0, 0, nil, shader: shaders.last
+    end
 
 
 end
