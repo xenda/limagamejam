@@ -10,7 +10,8 @@ def media_path(file); File.expand_path "media/#{file}", File.dirname(__FILE__) e
 
 class MainWindow < Chingu::Window
   def initialize
-    super 640, 480
+    super 1280, 768, false
+    Gosu::enable_undocumented_retrofication
     self.caption = "Matusita"
 
     self.input = {
@@ -22,7 +23,6 @@ class MainWindow < Chingu::Window
     retrofy
     switch_game_state(Level1)
   end
-
 
 end
 

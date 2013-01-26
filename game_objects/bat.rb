@@ -30,13 +30,14 @@ class Bat < GameObject
   end
 
   def update
-  	case @state
+  	
+    case @state
   		when :sleeping
-			@image = @animations[@state]
-		when :fly_right, :fly_left
-			@image = @animations[@state].next
+        @image = @animations[@state]
+  		when :fly_right, :fly_left
+  			@image = @animations[@state].next
+    end
 
-	end
   end
 
   def move(x, y)

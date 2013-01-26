@@ -1,1 +1,33 @@
---- []
+---
+- QuestionBox:
+    :x: 384.0
+    :y: 384.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- QuestionBox:
+    :x: 640.0
+    :y: 384.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- QuestionBox:
+    :x: 512.0
+    :y: 384.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Bat:
+    :x: 481.0
+    :y: 96.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1
+    :factor_y: 1
+    :alpha: 255
