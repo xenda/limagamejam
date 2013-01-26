@@ -28,6 +28,8 @@ class Bat < GameObject
 
   def update
 
+
+
   end
 
   def draw

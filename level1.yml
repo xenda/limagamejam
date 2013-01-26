@@ -1,137 +1,33 @@
 ---
-- Car:
-    :x: 100
-    :y: 40
-    :angle: 9475
-    :zorder: 95
-    :factor_x: 1.0
-    :factor_y: 1.0
-    :alpha: 86
-- Megaman:
-    :x: 456.0
-    :y: 440.0
-    :angle: 0
-    :zorder: 300
-    :factor_x: 1.0
-    :factor_y: 1.0
-    :alpha: 255
-- Car:
-    :x: 864.0
-    :y: 416.0
-    :angle: 9355
-    :zorder: 100
-    :factor_x: 1.0
-    :factor_y: 1.0
-    :alpha: 255
 - QuestionBox:
-    :x: 352.0
+    :x: 384.0
     :y: 384.0
     :angle: 0
     :zorder: 100
     :factor_x: 1.0
     :factor_y: 1.0
     :alpha: 255
-- Floor:
-    :x: -160.0
-    :y: -96.0
-    :angle: 0
-    :zorder: 100
-    :factor_x: 9.142857142857142
-    :factor_y: 0.11428571428571428
-    :alpha: 255
 - QuestionBox:
-    :x: 320.0
-    :y: 128.0
-    :angle: 0
-    :zorder: 100
-    :factor_x: 1.0
-    :factor_y: 1.0
-    :alpha: 255
-- Megaman:
-    :x: 220.0
-    :y: 440.0
-    :angle: 0
-    :zorder: 300
-    :factor_x: 1.0
-    :factor_y: 1.0
-    :alpha: 255
-- Megaman:
-    :x: 220.0
-    :y: 440.0
-    :angle: 0
-    :zorder: 300
-    :factor_x: 1.0
-    :factor_y: 1.0
-    :alpha: 255
-- Megaman:
-    :x: 223.0
-    :y: 440.0
-    :angle: 0
-    :zorder: 300
-    :factor_x: 1.0
-    :factor_y: 1.0
-    :alpha: 255
-- Megaman:
-    :x: 128.0
-    :y: 256.0
-    :angle: 0
-    :zorder: 300
-    :factor_x: 1
-    :factor_y: 1
-    :alpha: 255
-- Megaman:
-    :x: 221.0
-    :y: 440.0
-    :angle: 0
-    :zorder: 300
-    :factor_x: 1.0
-    :factor_y: 1.0
-    :alpha: 255
-- QuestionBox:
-    :x: 544.0
-    :y: -64.0
-    :angle: 0
-    :zorder: 100
-    :factor_x: 1.0
-    :factor_y: 1.0
-    :alpha: 255
-- QuestionBox:
-    :x: 544.0
-    :y: 32.0
-    :angle: 0
-    :zorder: 100
-    :factor_x: 1.0
-    :factor_y: 1.0
-    :alpha: 255
-- QuestionBox:
-    :x: 416.0
+    :x: 640.0
     :y: 384.0
     :angle: 0
     :zorder: 100
     :factor_x: 1.0
     :factor_y: 1.0
     :alpha: 255
-- Car:
-    :x: 704.0
-    :y: 320.0
-    :angle: 1620
+- QuestionBox:
+    :x: 512.0
+    :y: 384.0
+    :angle: 0
     :zorder: 100
     :factor_x: 1.0
     :factor_y: 1.0
     :alpha: 255
-- Megaman:
-    :x: 544.0
-    :y: 440.0
+- Bat:
+    :x: 481.0
+    :y: 96.0
     :angle: 0
-    :zorder: 300
+    :zorder: 100
     :factor_x: 1
     :factor_y: 1
-    :alpha: 255
-- QuestionBox:
-    :x: 736.0
-    :y: 32.0
-    :angle: 0
-    :zorder: 100
-    :factor_x: 1.0
-    :factor_y: 1.0
     :alpha: 255
