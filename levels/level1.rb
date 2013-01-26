@@ -7,13 +7,13 @@ class Level1 < Chingu::GameState
   def initialize(options = {})
     super(options)
 
-    self.viewport.game_area = [0, 0, 3200, 480]
+    self.viewport.game_area = [0, 0, 2835, 480]
 
     self.input = { :escape => :exit, :e => :edit }
 
-    @pixelate = Ashton::Shader.new fragment: :pixelate, uniforms: {
-        pixel_size: @pixel_size = 1,
-    }
+    # @pixelate = Ashton::Shader.new fragment: :pixelate, uniforms: {
+    #     pixel_size: @pixel_size = 1,
+    # }
 
     @bloom = Ashton::Shader.new fragment: :bloom
     @bloom.glare_size = 0.00
@@ -24,15 +24,27 @@ class Level1 < Chingu::GameState
     @parallax_collection = []
 
     @parallax = Parallax.new(:x => 0, :y => 0, :rotation_center => :top_left)
-    @parallax << { :image => media_path("background.jpg"), :damping => 3, :repeat_x => true, :repeat_y => true}
+    @parallax << { :image => media_path("BG_004.png"), :damping => 4, :repeat_x => true, :repeat_y => true}
 
-    @second_parallax = Parallax.new(:x => 0, :y => 0, :rotation_center => :bottom_left)
-    @second_parallax << { :image => media_path("grass.png"), :damping => 1, :repeat_x => true, :repeat_y => false}
+    @second_parallax = Parallax.new(:x => 0, :y => 0, :rotation_center => :top_left)
+    @second_parallax << { :image => media_path("BG_003.png"), :damping => 3, :repeat_x => true, :repeat_y => false}
 
     @second_parallax.camera_y = self.viewport.game_area.last * -1
 
+    @third_parallax = Parallax.new(:x => 0, :y => 0, :rotation_center => :top_left)
+    @third_parallax << { :image => media_path("BG_002.png"), :damping => 2, :repeat_x => true, :repeat_y => false}
+
+    @third_parallax.camera_y = self.viewport.game_area.last * -1
+
+    @fourth_parallax = Parallax.new(:x => 0, :y => 0, :rotation_center => :top_left)
+    @fourth_parallax << { :image => media_path("BG_001.png"), :damping => 1, :repeat_x => true, :repeat_y => false}
+
+    @fourth_parallax.camera_y = self.viewport.game_area.last * -1
+
     @parallax_collection << @parallax
     @parallax_collection << @second_parallax
+    @parallax_collection << @third_parallax
+    @parallax_collection << @fourth_parallax
 
     @bat = Bat.create(:x => 20, :y => 40)
     @hero = Megaman.create(:x => 100, :y => 460)
@@ -65,14 +77,13 @@ class Level1 < Chingu::GameState
     @second_parallax.camera_y = self.viewport.y - 610
     @second_parallax.update
 
-    @hero.each_collision(Car) do |player, car|
-      distance = (player.x - car.x).abs
+    @third_parallax.camera_x = self.viewport.x
+    @third_parallax.camera_y = self.viewport.y - 310
+    @third_parallax.update
 
-      if (player.y == car.y) && (distance < car.width / 2)
-        #puts [distance, car.width / 2]
-        player.die
-      end
-    end
+    @fourth_parallax.camera_x = self.viewport.x
+    @fourth_parallax.camera_y = self.viewport.y - 110
+    @fourth_parallax.update
 
     @hero.each_collision(PassableBox) do |player, question_box|
       if player.y.to_i <= question_box.bb.top.to_i + 5
@@ -87,7 +98,7 @@ class Level1 < Chingu::GameState
 
   def draw
     @font.draw_rel("MATUSITA", $window.width / 2 - 130, 260, 10, 0, 0.5)
-    $window.post_process(@pixelate) do
+    $window.post_process(@bloom) do
       @parallax_collection.each do |parallax|
         parallax.draw
       end
