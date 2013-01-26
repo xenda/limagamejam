@@ -52,8 +52,6 @@ class Level1 < Chingu::GameState
 
     # @boxes = []
 
-    @car = Car.create(:x => 600, :y => 140)
-
     @font = Gosu::Font.new $window, "media/uni05_54-webfont.ttf", 60
 
    end
