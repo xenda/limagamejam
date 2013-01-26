@@ -12,7 +12,7 @@ class Level1 < Chingu::GameState
     self.input = { :escape => :exit, :e => :edit }
 
     @pixelate = Ashton::Shader.new fragment: :pixelate, uniforms: {
-        pixel_size: @pixel_size = 2,
+        pixel_size: @pixel_size = 1,
     }
 
     @bloom = Ashton::Shader.new fragment: :bloom
@@ -40,11 +40,7 @@ class Level1 < Chingu::GameState
 
     # @boxes = []
 
-    # 5.times do |i|
-    #   @boxes << QuestionBox.create(:x => (i + 1) * 250, :y => 340)
-    # end
-
-    # @car = Car.create(:x => 600, :y => 440)
+    @car = Car.create(:x => 600, :y => 140)
 
     @font = Gosu::Font.new $window, "media/uni05_54-webfont.ttf", 60
 
