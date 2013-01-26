@@ -26,7 +26,7 @@ class Level1 < Chingu::GameState
     @boxes = []
 
     5.times do |i|
-      @boxes << QuestionBox.create(:x => (i + 1) * 250, :y => 350)
+      @boxes << QuestionBox.create(:x => (i + 1) * 250, :y => 340)
     end
 
     @car = Car.create(:x => 600, :y => 440)
@@ -51,7 +51,7 @@ class Level1 < Chingu::GameState
       distance = (player.x - car.x).abs
 
       if (player.y == car.y) && (distance < car.width / 2)
-        puts [distance, car.width / 2]
+        #puts [distance, car.width / 2]
         player.die
       end
     end
@@ -60,6 +60,9 @@ class Level1 < Chingu::GameState
       if player.y.to_i <= question_box.bb.top.to_i + 5
         player.velocity_y = 0
         player.y = question_box.bb.top
+      elsif player.y.to_i <= question_box.bb.bottom.to_i
+        #monedas
+        player.velocity_y = +2
       end
     end
   end
