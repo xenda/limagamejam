@@ -1,6 +1,6 @@
 class Megaman < Chingu::GameObject
   trait :bounding_box, :scale => 0.8
-  traits :timer, :collision_detection , :timer, :velocity
+  traits :timer, :collision_detection,  :velocity
 
   attr_accessor :direction, :jumping, :health
 
@@ -27,8 +27,8 @@ class Megaman < Chingu::GameObject
     @animations[:run] = Animation.new(:file => "media/char_001_sprite.png", :size => [72,70], :delay => 100);
     @animations[:run].frame_names = { :left => 0..3, :right => 4..7 }
 
-    @animations[:jump] = Animation.new(:file => "media/megaman-sprites-jump.png", :size => [90,90]);
-    @animations[:jump].frame_names = { :left => 0..1, :right => 2..3 }
+    @animations[:jump] = Animation.new(:file => "media/char_002_sprite.png", :size => [72,72], :delay => 70);
+    @animations[:jump].frame_names = { :left => 0..2, :right => 3..5 }
 
     @image =  current_animation.first
 
@@ -94,6 +94,7 @@ class Megaman < Chingu::GameObject
     @state = :jump
     @jumping = true
     self.velocity_y = -10*(@multiplier > 1 ? @multiplier/2 : @multiplier)
+    # self.velocity_y = -11
   end
 
   def move(x, y)
