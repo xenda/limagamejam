@@ -42,9 +42,9 @@ class Level1 < Chingu::GameState
     @second_parallax.update
 
     @doctor.each_collision(Car) do |player, evil_object|
-      distance = ((evil_object.x + evil_object.width) - player.x).abs
+      distance = (player.x - evil_object.x).abs
 
-      if (player.y == evil_object.y) || (distance > (evil_object.width / 3))
+      if (player.y == evil_object.y) && (distance < evil_object.width / 2)
         puts [distance, evil_object.width / 2]
         player.die
       end
