@@ -2,7 +2,7 @@ class Megaman < Chingu::GameObject
   trait :bounding_box, :scale => 0.8
   traits :timer, :collision_detection , :timer, :velocity
 
-  attr_accessor :direction
+  attr_accessor :direction, :jumping
 
   def setup
     self.input = {
@@ -143,10 +143,6 @@ class Megaman < Chingu::GameObject
     self.each_collision(PassableBox) do |me, stone_wall|
         @jumping = false
         # me.y = stone_wall.bb.top-1
-    end
-
-    self.each_collision(GoalTree) do |me, tree|
-      @jumping = true
     end
 
 

@@ -128,40 +128,16 @@
     :factor_y: 1.0
     :alpha: 255
 - Bat:
-    :x: 320.0
-    :y: 96.0
+    :x: 26.37133233354227
+    :y: 439.99979649476535
     :angle: 0
     :zorder: 100
     :factor_x: 1.0
     :factor_y: 1.0
     :alpha: 255
 - Bat:
-    :x: 512.0
-    :y: 96.0
-    :angle: 0
-    :zorder: 100
-    :factor_x: 1.0
-    :factor_y: 1.0
-    :alpha: 255
-- Bat:
-    :x: 416.0
-    :y: 96.0
-    :angle: 0
-    :zorder: 100
-    :factor_x: 1.0
-    :factor_y: 1.0
-    :alpha: 255
-- Bat:
-    :x: 96.0
-    :y: 96.0
-    :angle: 0
-    :zorder: 100
-    :factor_x: 1.0
-    :factor_y: 1.0
-    :alpha: 255
-- Bat:
-    :x: 32.0
-    :y: 96.0
+    :x: 27.54624155046424
+    :y: 440.0006237937349
     :angle: 0
     :zorder: 100
     :factor_x: 1.0
@@ -186,6 +162,22 @@
 - PassableBox:
     :x: 512.0
     :y: 224.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Bat:
+    :x: 384.0
+    :y: 128.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- PassableBox:
+    :x: 416.0
+    :y: 384.0
     :angle: 0
     :zorder: 100
     :factor_x: 1.0

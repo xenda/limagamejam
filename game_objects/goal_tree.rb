@@ -1,5 +1,5 @@
 class GoalTree < GameObject
-  trait :bounding_box, :debug => true, :scale => 0.5
+  trait :bounding_box, :debug => true, :scale => 0.2
   trait :collision_detection
 
   # def self.solid
