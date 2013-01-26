@@ -57,7 +57,7 @@ class Level < Chingu::GameState
    end
 
   def edit
-    push_game_state(GameStates::Edit.new(:grid => [32,32], :classes => [ GoalTree, Car, PassableBox, Floor, Bat]))
+    push_game_state(GameStates::Edit.new(:grid => [72,72], :classes => [ GoalTree, EvilTree, Car, PassableBox, Floor, Bat]))
   end
 
    # def debug
@@ -104,6 +104,12 @@ class Level < Chingu::GameState
       me.health += 0.05 unless me.health >= 100
       @colliding = true
     end
+
+    @hero.each_collision(EvilTree) do |me, tree|
+      me.health -= 0.15 unless me.health <= 30
+      @colliding = true
+    end
+
     if @colliding
       enable_bloom
     else
