@@ -8,7 +8,7 @@ class Megaman < Chingu::GameObject
     self.input = {
       :holding_left => :move_to_left,
       :holding_right => :move_to_right,
-      :holding_up => :jump,
+      [:holding_up, :holding_space] => :jump,
       :holding_left_control => :add_multiplier,
       :released_left_control => :remove_multiplier
     }
@@ -82,7 +82,7 @@ class Megaman < Chingu::GameObject
 
     @direction = :right
 
-    if self.x < 3200
+    if self.x < 2880
       move(5*@multiplier, 0)
     end
     #@image = Image["doctor-right.png"]

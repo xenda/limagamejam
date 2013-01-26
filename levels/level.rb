@@ -14,6 +14,7 @@ class Level < Chingu::GameState
 
     @bloom = Ashton::Shader.new fragment: :bloom
     @blur = Ashton::Shader.new fragment: :radial_blur
+
     @bloom.glare_size = 0.05
     @bloom.power = 0.05
 
@@ -50,7 +51,7 @@ class Level < Chingu::GameState
     @lifebar = BarLife.create(:x => 10, :y => 10)
     @lifebar.hero = @hero
 
-    @music = Gosu::Song.new($window, "media/background1.mp3")
+    @music = Gosu::Song.new($window, "media/background2.mp3")
     @music.play
 
    end
@@ -133,6 +134,7 @@ class Level < Chingu::GameState
   end
 
   def draw
+
     $window.post_process(@bloom, @blur) do
       @parallax_collection.each do |parallax|
         parallax.draw
