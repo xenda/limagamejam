@@ -54,8 +54,6 @@ class Level1 < Chingu::GameState
      bat.heroReference = @hero
     end
 
-    # @boxes = []
-
     @font = Gosu::Font.new $window, "media/uni05_54-webfont.ttf", 60
 
    end

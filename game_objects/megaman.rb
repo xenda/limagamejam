@@ -2,6 +2,8 @@ class Megaman < Chingu::GameObject
   trait :bounding_box, :scale => 0.8
   traits :timer, :collision_detection , :timer, :velocity
 
+  attr_accessor :direction
+
   def setup
     self.input = {
       :holding_left => :move_to_left,

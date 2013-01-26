@@ -1,14 +1,17 @@
 class Bat < GameObject
   trait :bounding_box, :debug => false #, :scale => 0.7
-  trait :collision_detection
+  trait :collision_detection, :velocity
 
-  attr_accessor :hunting, :heroReference
+  attr_accessor :hunting, :heroReference, :direction
 
   def setup
 
   	@hunting = false
-    @state = :sleeping
+    @state = :fly_right
     @direction = :right
+    @max_left = @x - 50
+    @max_right = @x + 50
+    @towards = rand(1) == 0 ? 1 : -1 
 
     @animations = Animation.new(:file => "media/bat.png", :size => [50,46], :delay => 120);
     @animations.frame_names = {
@@ -31,13 +34,24 @@ class Bat < GameObject
 
 
   def update
-  	if @heroReference
-      self.x += @heroReference.x * 0.007
-      self.y += @heroReference.y * 0.007
-      #puts @heroReference.x, self.x
+	 # if @heroReference
+  #     self.x += @heroReference.x * 0.007
+  #     self.y += @heroReference.y * 0.007
+  #   end
 
-
+    if @x < @max_left
+      @direction = :right
+      @towards = 1
+      @state = :fly_right
     end
+
+    if @x > @max_right
+      @direction = :left
+      @towards = -1
+      @state = :fly_left
+    end
+
+    move_x(1, @towards)
 
     case @state
   		when :sleeping
@@ -47,9 +61,13 @@ class Bat < GameObject
     end
   end
 
+  def move_x(step, direction)
+    move(step*direction, 0)
+  end
+
   def move(x, y)
-    self.x = x
-    self.y = y
+    self.x += x
+    self.y += y
   end
 
   
