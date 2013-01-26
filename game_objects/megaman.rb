@@ -101,11 +101,19 @@ class Megaman < Chingu::GameObject
 
   def update
 
-    puts @state
-
     if !(self.holding_any? :left, :right, :jump) && !@jumping
+      
       @state = :normal
       parapadeo
+
+    elsif @jumping
+
+      if self.velocity_y < 0
+        @image = @animations[:jump][@direction][(@direction == :right) ? 1 : 0]
+      else
+        @image = @animations[:jump][@direction][(@direction == :right) ? 0 : 1]
+      end
+
     else
       @image = @animations[@state][@direction].next
     end

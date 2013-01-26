@@ -32,7 +32,7 @@ class Level1 < Chingu::GameState
     @parallax_collection << @parallax
     @parallax_collection << @second_parallax
 
-    @doctor = Doctor.create(:x => 100, :y => 460)
+    @hero = Megaman.create(:x => 100, :y => 460)
     @floor = Floor.create(:x => 0, :y => 480)
 
     @boxes = []
@@ -50,7 +50,7 @@ class Level1 < Chingu::GameState
     super
     $gosu_blocks.clear if defined? $gosu_blocks # Workaround for Gosu bug (0.7.45)
 
-    self.viewport.center_around(@doctor)
+    self.viewport.center_around(@hero)
 
     @parallax.camera_x = self.viewport.x
     @parallax.camera_y = self.viewport.y
@@ -60,7 +60,7 @@ class Level1 < Chingu::GameState
     @second_parallax.camera_y = self.viewport.y - 610
     @second_parallax.update
 
-    @doctor.each_collision(Car) do |player, car|
+    @hero.each_collision(Car) do |player, car|
       distance = (player.x - car.x).abs
 
       if (player.y == car.y) && (distance < car.width / 2)
@@ -69,7 +69,7 @@ class Level1 < Chingu::GameState
       end
     end
 
-    @doctor.each_collision(QuestionBox) do |player, question_box|
+    @hero.each_collision(QuestionBox) do |player, question_box|
       if player.y.to_i <= question_box.bb.top.to_i + 5
         player.velocity_y = 0
         player.y = question_box.bb.top
