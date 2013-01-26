@@ -34,6 +34,7 @@ class Level1 < Chingu::GameState
     @parallax_collection << @parallax
     @parallax_collection << @second_parallax
 
+    @bat = Bat.create(:x => 0, :y => 0)
     @hero = Megaman.create(:x => 100, :y => 460)
     @floor = Floor.create(:x => 0, :y => 480)
 
