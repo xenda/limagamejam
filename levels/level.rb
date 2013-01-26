@@ -9,9 +9,11 @@ class Level < Chingu::GameState
 
     self.viewport.game_area = [0, 0, 2835, 480]
 
-    self.input = { :escape => :exit, :e => :edit }
+    self.input = { :escape => :exit, :e => :edit, :holding_left_control => :enable_blur,
+      :released_left_control => :disable_blur }
 
     @bloom = Ashton::Shader.new fragment: :bloom
+    @blur = Ashton::Shader.new fragment: :radial_blur
     @bloom.glare_size = 0.05
     @bloom.power = 0.05
 
@@ -71,7 +73,7 @@ class Level < Chingu::GameState
     @parallax.camera_x = self.viewport.x
     @parallax.camera_y = self.viewport.y
     @parallax.update
-
+    @colliding = false
     # @second_parallax.camera_x = self.viewport.x
     # @second_parallax.camera_y = self.viewport.y - 610
     # @second_parallax.update
@@ -94,12 +96,44 @@ class Level < Chingu::GameState
         player.velocity_y = +2
       end
     end
-    
+
+
+
+    @hero.each_collision(GoalTree) do |me, tree|
+      me.health += 0.05 unless me.health >= 100
+      @colliding = true
+    end
+    if @colliding
+      enable_bloom
+    else
+      disable_bloom
+    end
+
     @lifebar.x = self.viewport.x + 10;
   end
 
+  def enable_blur
+    @blur.spacing = 1.0
+    @blur.strength = 1.0
+  end
+
+  def disable_blur
+    @blur.spacing = 0.0
+    @blur.strength = 0.0
+  end
+
+  def enable_bloom
+    @bloom.glare_size = 0.05
+    @bloom.power = 0.2
+  end
+
+  def disable_bloom
+    @bloom.glare_size = 0.05
+    @bloom.power = 0.05
+  end
+
   def draw
-    $window.post_process(@bloom) do
+    $window.post_process(@bloom, @blur) do
       @parallax_collection.each do |parallax|
         parallax.draw
       end
