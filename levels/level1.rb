@@ -26,7 +26,7 @@ class Level1 < Chingu::GameState
     @boxes = []
 
     5.times do |i|
-      @boxes << QuestionBox.create(:x => (i + 1) * 250, :y => 380)
+      @boxes << QuestionBox.create(:x => (i + 1) * 250, :y => 350)
     end
 
     @car = Car.create(:x => 600, :y => 440)
@@ -57,7 +57,7 @@ class Level1 < Chingu::GameState
     end
 
     @doctor.each_collision(QuestionBox) do |player, question_box|
-      if player.is_jumping?
+      if player.y.to_i <= question_box.bb.top.to_i + 5
         player.velocity_y = 0
         player.y = question_box.bb.top
       end

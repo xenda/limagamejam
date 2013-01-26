@@ -16,7 +16,7 @@ class Doctor < Chingu::GameObject
 
     self.zorder = 300
     self.acceleration_y = 0.5
-    self.max_velocity = 10
+    self.max_velocity = 15
     self.rotation_center = :bottom_center
 
     update
@@ -40,7 +40,7 @@ class Doctor < Chingu::GameObject
   def jump
     return if @jumping
     @jumping = true
-    self.velocity_y = -10
+    self.velocity_y = -12
   end
 
   def move(x, y)
@@ -50,7 +50,7 @@ class Doctor < Chingu::GameObject
 
   def die
     @died = true
-    self.velocity_y = -10
+    self.velocity_y = -15
   end
 
   def is_jumping?
