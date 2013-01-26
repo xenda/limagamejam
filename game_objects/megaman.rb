@@ -9,7 +9,8 @@ class Megaman < Chingu::GameObject
       :holding_left => :move_to_left,
       :holding_right => :move_to_right,
       :holding_up => :jump,
-      :holding_left_control => :add_multiplier
+      :holding_left_control => :add_multiplier,
+      :released_left_control => :remove_multiplier
     }
 
     @state = :normal
@@ -49,7 +50,12 @@ class Megaman < Chingu::GameObject
   end
 
   def add_multiplier
-    puts "Hi"
+    @multiplier = 2
+    @health -= 0.10
+  end
+
+  def remove_multiplier
+    @multiplier = 1
   end
 
   def move_to_left
@@ -62,7 +68,7 @@ class Megaman < Chingu::GameObject
     @direction = :left
 
     if self.x >= 30
-      move(-5, 0)
+      move(-5*@multiplier, 0)
     end
     #@image = Image["doctor-left.png"]
   end
@@ -77,7 +83,7 @@ class Megaman < Chingu::GameObject
     @direction = :right
 
     if self.x < 3200
-      move(5, 0)
+      move(5*@multiplier, 0)
     end
     #@image = Image["doctor-right.png"]
   end
@@ -87,7 +93,7 @@ class Megaman < Chingu::GameObject
 
     @state = :jump
     @jumping = true
-    self.velocity_y = -10
+    self.velocity_y = -10*(@multiplier > 1 ? @multiplier/2 : @multiplier)
   end
 
   def move(x, y)
@@ -123,7 +129,7 @@ class Megaman < Chingu::GameObject
   end
 
   def take_damage
-    @health -= @damage_per_turn * @multiplier
+    @health -= @damage_per_turn
   end
 
   def update
