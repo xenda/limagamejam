@@ -1,9 +1,11 @@
 require 'gosu'
 require 'ashton'
+require 'chingu'
+include Gosu
 
 def media_path(file); File.expand_path "media/#{file}", File.dirname(__FILE__) end
 
-class MainWindow < Gosu::Window
+class MainWindow < Chingu::Window
   def initialize
     super 1024, 768, false
     self.caption = "BloodStuff"
