@@ -23,14 +23,6 @@
     :factor_x: 1.0
     :factor_y: 1.0
     :alpha: 255
-- Bat:
-    :x: 573.0
-    :y: 64.0
-    :angle: 0
-    :zorder: 100
-    :factor_x: 1.0
-    :factor_y: 1.0
-    :alpha: 255
 - PassableBox:
     :x: 896.0
     :y: 384.0
@@ -58,14 +50,6 @@
 - PassableBox:
     :x: 992.0
     :y: 384.0
-    :angle: 0
-    :zorder: 100
-    :factor_x: 1.0
-    :factor_y: 1.0
-    :alpha: 255
-- Bat:
-    :x: 808.0
-    :y: 0.0
     :angle: 0
     :zorder: 100
     :factor_x: 1.0
@@ -103,14 +87,6 @@
     :factor_x: 1.0
     :factor_y: 1.0
     :alpha: 255
-- Bat:
-    :x: 837.0
-    :y: -63.0
-    :angle: 0
-    :zorder: 100
-    :factor_x: 1.0
-    :factor_y: 1.0
-    :alpha: 255
 - Car:
     :x: 702.0
     :y: 408.0
@@ -127,22 +103,6 @@
     :factor_x: 1.0
     :factor_y: 1.0
     :alpha: 255
-- Bat:
-    :x: 145.0
-    :y: 160.0
-    :angle: 0
-    :zorder: 100
-    :factor_x: 1.0
-    :factor_y: 1.0
-    :alpha: 255
-- Bat:
-    :x: 377.0
-    :y: 32.0
-    :angle: 0
-    :zorder: 100
-    :factor_x: 1.0
-    :factor_y: 1.0
-    :alpha: 255
 - GoalTree:
     :x: 2528.0
     :y: 512.0
@@ -151,27 +111,83 @@
     :factor_x: 1.0
     :factor_y: 1.0
     :alpha: 255
-- Bat:
-    :x: 1728.0
-    :y: 160.0
+- PassableBox:
+    :x: 576.0
+    :y: 288.0
     :angle: 0
     :zorder: 100
-    :factor_x: 1
-    :factor_y: 1
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- PassableBox:
+    :x: 608.0
+    :y: 288.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
     :alpha: 255
 - Bat:
-    :x: 1856.0
+    :x: 320.0
+    :y: 96.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Bat:
+    :x: 512.0
+    :y: 96.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Bat:
+    :x: 416.0
+    :y: 96.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Bat:
+    :x: 96.0
+    :y: 96.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Bat:
+    :x: 32.0
+    :y: 96.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Car:
+    :x: 320.0
+    :y: 416.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- PassableBox:
+    :x: 544.0
     :y: 224.0
     :angle: 0
     :zorder: 100
-    :factor_x: 1
-    :factor_y: 1
+    :factor_x: 1.0
+    :factor_y: 1.0
     :alpha: 255
-- Bat:
-    :x: 1952.0
-    :y: 160.0
+- PassableBox:
+    :x: 512.0
+    :y: 224.0
     :angle: 0
     :zorder: 100
-    :factor_x: 1
-    :factor_y: 1
+    :factor_x: 1.0
+    :factor_y: 1.0
     :alpha: 255

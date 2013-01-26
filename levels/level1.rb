@@ -54,7 +54,7 @@ class Level1 < Chingu::GameState
     end
 
     @font = Gosu::Font.new $window, "media/uni05_54-webfont.ttf", 60
-    @music = Gosu::Song.new(self, "background1.m4a")
+    @music = Gosu::Song.new($window, "media/background1.mp3")
     @music.play
    end
 

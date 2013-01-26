@@ -6,9 +6,11 @@ class Bat < GameObject
 
   def setup
 
+    @speed = 2
   	@hunting = false
     @state = :fly_right
     @direction = :right
+    @start_y = @y
     @bounding_x = [@x - 35+rand(10), @x + 35+rand(10)]
     @bounding_y = [@y - 25+rand(5), @y + 25 + rand(5)]
     @towards_x = rand(1) == 0 ? 1 : -1
@@ -35,10 +37,6 @@ class Bat < GameObject
 
 
   def update
-	 # if @heroReference
-  #     self.x += @heroReference.x * 0.007
-  #     self.y += @heroReference.y * 0.007
-  #   end
 
     if @x < @bounding_x.first
       @direction = :right
@@ -50,6 +48,40 @@ class Bat < GameObject
       @direction = :left
       @towards_x = -1
       @state = :fly_left
+    end
+
+    if @heroReference
+
+      if (@heroReference.x - self.x).abs < 200
+        @hunting = true
+      else
+        @hunting = false
+      end
+
+    end
+
+    if @hunting && @heroReference
+
+      yDistance = @heroReference.y - self.y;
+      xDistance = @heroReference.x - self.x;
+
+      radian = Math.atan2(yDistance, xDistance)
+
+      self.x += Math.cos(radian) * @speed;
+      self.y += Math.sin(radian) * @speed;
+
+      #self.angle = radian * 180 / Math::PI;
+
+      if @x < @heroReference.x
+        @state = :fly_right
+      else
+        @state = :fly_left
+      end
+
+    else
+
+      @y -= 1 if @y < @start_y
+
     end
 
     @towards_y = 1 if @y < @bounding_y.first
@@ -83,8 +115,5 @@ class Bat < GameObject
   
   def bat_fly
   	@state = :fly_right
-
-  	#puts @hunting
-    puts @heroReference
   end
 end
