@@ -20,12 +20,12 @@ class Level < Chingu::GameState
     @parallax_collection = []
 
     @parallax = Parallax.new(:x => 0, :y => 0, :rotation_center => :top_left)
-    @parallax << { :image => media_path("BG_004.png"), :damping => 4, :repeat_x => true, :repeat_y => true}
+    @parallax << { :image => media_path("BG_003.png"), :damping => 4, :repeat_x => true, :repeat_y => true}
 
-    @second_parallax = Parallax.new(:x => 0, :y => 0, :rotation_center => :top_left)
-    @second_parallax << { :image => media_path("BG_003.png"), :damping => 3, :repeat_x => true, :repeat_y => false}
+    # @second_parallax = Parallax.new(:x => 0, :y => 0, :rotation_center => :top_left)
+    # @second_parallax << { :image => media_path("BG_003.png"), :damping => 3, :repeat_x => true, :repeat_y => false}
 
-    @second_parallax.camera_y = self.viewport.game_area.last * -1
+    # @second_parallax.camera_y = self.viewport.game_area.last * -1
 
     @third_parallax = Parallax.new(:x => 0, :y => 0, :rotation_center => :top_left)
     @third_parallax << { :image => media_path("BG_002.png"), :damping => 2, :repeat_x => true, :repeat_y => false}
@@ -38,7 +38,7 @@ class Level < Chingu::GameState
     @fourth_parallax.camera_y = self.viewport.game_area.last * -1
 
     @parallax_collection << @parallax
-    @parallax_collection << @second_parallax
+    # @parallax_collection << @second_parallax
     @parallax_collection << @third_parallax
     @parallax_collection << @fourth_parallax
 
@@ -69,9 +69,9 @@ class Level < Chingu::GameState
     @parallax.camera_y = self.viewport.y
     @parallax.update
 
-    @second_parallax.camera_x = self.viewport.x
-    @second_parallax.camera_y = self.viewport.y - 610
-    @second_parallax.update
+    # @second_parallax.camera_x = self.viewport.x
+    # @second_parallax.camera_y = self.viewport.y - 610
+    # @second_parallax.update
 
     @third_parallax.camera_x = self.viewport.x
     @third_parallax.camera_y = self.viewport.y - 310

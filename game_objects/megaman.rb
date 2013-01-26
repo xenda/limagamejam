@@ -14,6 +14,9 @@ class Megaman < Chingu::GameObject
     @state = :normal
     @direction = :right
 
+    @health = 100
+    @multiplier = 1
+    @damage_per_turn = 1
 
     @animations = {}
     @animations[:normal] = Animation.new(:file => "media/megaman-sprites-normal.png", :size => [72,72], :delay => 200);
@@ -37,6 +40,7 @@ class Megaman < Chingu::GameObject
 
     update
     cache_bounding_box
+    every(1000){ take_damage unless idle? }
   end
 
   def current_animation
@@ -101,7 +105,7 @@ class Megaman < Chingu::GameObject
     @image = @animations[:normal][@direction].next
   end
 
-  def idle
+  def idle?
     !(self.holding_any? :left, :right, :jump) && !@jumping
   end
 
@@ -113,9 +117,13 @@ class Megaman < Chingu::GameObject
     (@direction == :right) ? 0 : 1
   end
 
+  def take_damage
+    @health -= @damage_per_turn * @multiplier
+  end
+
   def update
 
-    if idle
+    if idle?
       @state = :normal
       winking
     elsif @jumping
@@ -127,6 +135,9 @@ class Megaman < Chingu::GameObject
     else
       @image = @animations[@state][@direction].next
     end
+
+  
+   # puts @health
 
     self.each_collision(Floor) do |me, block|
       if self.velocity_y < 0
