@@ -94,7 +94,8 @@ class Level < Chingu::GameState
         player.velocity_y = +2
       end
     end
-
+    
+    @lifebar.x = self.viewport.x + 10;
   end
 
   def draw

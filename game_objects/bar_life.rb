@@ -19,8 +19,7 @@ class BarLife < GameObject
   	
   	#FILL
     width = (@hero.health / 100.0) * $window.width.to_f - 20
-    puts width
-	$window.fill_rect(Chingu::Rect.new(@x, @y, width , @height), Gosu::Color.new(0xffffffff), @zorder)	
+	  $window.fill_rect(Chingu::Rect.new(@x, @y, width , @height), Gosu::Color.new(0xffffffff), @zorder)	
   end
 
   def check_life
