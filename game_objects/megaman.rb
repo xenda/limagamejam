@@ -2,7 +2,7 @@ class Megaman < Chingu::GameObject
   trait :bounding_box, :scale => 0.8
   traits :timer, :collision_detection , :timer, :velocity
 
-  attr_accessor :direction, :jumping
+  attr_accessor :direction, :jumping, :health
 
   def setup
     self.input = {
@@ -13,7 +13,7 @@ class Megaman < Chingu::GameObject
 
     @state = :normal
     @direction = :right
-
+    @health = 100
 
     @animations = {}
     @animations[:normal] = Animation.new(:file => "media/megaman-sprites-normal.png", :size => [72,72], :delay => 200);

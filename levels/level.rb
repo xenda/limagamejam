@@ -45,6 +45,9 @@ class Level < Chingu::GameState
     @hero = Megaman.create(:x => 100, :y => 460)
     @floor = Floor.create(:x => 0, :y => 480)
     @font = Gosu::Font.new $window, "media/uni05_54-webfont.ttf", 60
+    @lifebar = BarLife.create(:x => 10, :y => 10)
+    @lifebar.hero = @hero
+
     @music = Gosu::Song.new($window, "media/background1.mp3")
     @music.play
 
