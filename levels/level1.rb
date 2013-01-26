@@ -38,6 +38,10 @@ class Level1 < Chingu::GameState
     @hero = Megaman.create(:x => 100, :y => 460)
     @floor = Floor.create(:x => 0, :y => 480)
 
+    Bat.all.each do |bat|
+     bat.heroReference = @hero
+    end
+
     # @boxes = []
 
     # 5.times do |i|

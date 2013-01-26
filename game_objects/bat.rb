@@ -2,7 +2,7 @@ class Bat < GameObject
   trait :bounding_box, :debug => false #, :scale => 0.7
   trait :collision_detection
 
-  attr_accessor :hunting
+  attr_accessor :hunting, :heroReference
 
   def setup
 
@@ -31,14 +31,20 @@ class Bat < GameObject
 
 
   def update
-  	
+  	if @heroReference
+      self.x += @heroReference.x * 0.007
+      self.y += @heroReference.y * 0.007
+      #puts @heroReference.x, self.x
+
+
+    end
+
     case @state
   		when :sleeping
         @image = @animations[@state]
   		when :fly_right, :fly_left
   			@image = @animations[@state].next
     end
-    
   end
 
   def move(x, y)
@@ -50,6 +56,7 @@ class Bat < GameObject
   def bat_fly
   	@state = :fly_right
 
-  	puts @hunting
+  	#puts @hunting
+    puts @heroReference
   end
 end
