@@ -45,7 +45,7 @@ class Megaman < Chingu::GameObject
     if @jumping
       @state = :jump
     else
-      @state = :run  
+      @state = :run
     end
 
     @direction = :left
@@ -89,9 +89,9 @@ class Megaman < Chingu::GameObject
     self.velocity_y = -10
   end
 
-  def parapadeo
+  def winking
     orientation = (@direction==:right) ? 'first' : 'last';
-    
+
     if @image == @animations[:normal][@direction].send( "#{orientation}".to_sym )
       return if Random.rand(10) != 0
     end
@@ -99,21 +99,29 @@ class Megaman < Chingu::GameObject
     @image = @animations[:normal][@direction].next
   end
 
+  def idle
+    !(self.holding_any? :left, :right, :jump) && !@jumping
+  end
+
+  def index_for_left
+    (@direction == :right) ? 1 : 0
+  end
+
+  def index_for_right
+    (@direction == :right) ? 0 : 1
+  end
+
   def update
 
-    if !(self.holding_any? :left, :right, :jump) && !@jumping
-      
+    if idle
       @state = :normal
-      parapadeo
-
+      winking
     elsif @jumping
-
       if self.velocity_y < 0
-        @image = @animations[:jump][@direction][(@direction == :right) ? 1 : 0]
+        @image = @animations[:jump][@direction][index_for_left]
       else
-        @image = @animations[:jump][@direction][(@direction == :right) ? 0 : 1]
+        @image = @animations[:jump][@direction][index_for_right]
       end
-
     else
       @image = @animations[@state][@direction].next
     end

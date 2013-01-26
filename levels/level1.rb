@@ -8,16 +8,18 @@ class Level1 < Chingu::GameState
     super(options)
 
     self.viewport.game_area = [0, 0, 3200, 480]
+
+    self.input = { :escape => :exit, :e => :edit }
+
     @pixelate = Ashton::Shader.new fragment: :pixelate, uniforms: {
-        pixel_size: @pixel_size = 1,
+        pixel_size: @pixel_size = 2,
     }
 
-
     @bloom = Ashton::Shader.new fragment: :bloom
-    @bloom.glare_size = 0.010
-    @bloom.power = 0.2
+    @bloom.glare_size = 0.00
+    @bloom.power = 0.0
 
-
+    load_game_objects
 
     @parallax_collection = []
 
@@ -35,16 +37,22 @@ class Level1 < Chingu::GameState
     @hero = Megaman.create(:x => 100, :y => 460)
     @floor = Floor.create(:x => 0, :y => 480)
 
-    @boxes = []
+    # @boxes = []
 
-    5.times do |i|
-      @boxes << QuestionBox.create(:x => (i + 1) * 250, :y => 340)
-    end
+    # 5.times do |i|
+    #   @boxes << QuestionBox.create(:x => (i + 1) * 250, :y => 340)
+    # end
 
-    @car = Car.create(:x => 600, :y => 440)
+    # @car = Car.create(:x => 600, :y => 440)
 
     @font = Gosu::Font.new $window, "media/uni05_54-webfont.ttf", 60
+
+   end
+
+  def edit
+    push_game_state(GameStates::Edit.new(:grid => [32,32], :classes => [Megaman, Car, QuestionBox, Floor]))
   end
+
 
   def update
     super
@@ -82,7 +90,7 @@ class Level1 < Chingu::GameState
 
   def draw
     @font.draw_rel("MATUSITA", $window.width / 2 - 130, 60, 500, 0, 0.5, 1, 1, 0xccfc8e2e)
-      $window.post_process(@pixelate, @bloom) do
+      $window.post_process(@pixelate) do
         @parallax_collection.each do |parallax|
           parallax.draw
         end
