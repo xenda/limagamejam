@@ -1,5 +1,5 @@
 ---
-- QuestionBox:
+- PassableBox:
     :x: 384.0
     :y: 384.0
     :angle: 0
@@ -7,7 +7,7 @@
     :factor_x: 1.0
     :factor_y: 1.0
     :alpha: 255
-- QuestionBox:
+- PassableBox:
     :x: 640.0
     :y: 384.0
     :angle: 0
@@ -15,7 +15,7 @@
     :factor_x: 1.0
     :factor_y: 1.0
     :alpha: 255
-- QuestionBox:
+- PassableBox:
     :x: 512.0
     :y: 384.0
     :angle: 0
@@ -28,6 +28,86 @@
     :y: 96.0
     :angle: 0
     :zorder: 100
-    :factor_x: 1
-    :factor_y: 1
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- PassableBox:
+    :x: 896.0
+    :y: 384.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- PassableBox:
+    :x: 928.0
+    :y: 384.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- PassableBox:
+    :x: 960.0
+    :y: 384.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- PassableBox:
+    :x: 992.0
+    :y: 384.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Bat:
+    :x: 704.0
+    :y: 0.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Car:
+    :x: 768.0
+    :y: 416.0
+    :angle: 14925
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Car:
+    :x: 960.0
+    :y: 320.0
+    :angle: 14865
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- PassableBox:
+    :x: 1056.0
+    :y: 320.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- PassableBox:
+    :x: 1088.0
+    :y: 320.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Bat:
+    :x: 743.0
+    :y: -63.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
     :alpha: 255

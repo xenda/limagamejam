@@ -26,15 +26,15 @@ class Bat < GameObject
     cache_bounding_box
   end
 
-  def update
+  # def update
 
 
 
-  end
+  # end
 
-  def draw
+  # def draw
 
-  end
+  # end
 
   def move(x, y)
     self.x = x

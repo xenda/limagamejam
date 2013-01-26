@@ -1,7 +1,7 @@
-class QuestionBox < GameObject
-  trait :bounding_box, :debug => false
+class PassableBox < GameObject
+  trait :bounding_box, :debug => true
   trait :collision_detection
-  
+
   def self.solid
     all.select { |block| block.alpha == 255 }
   end
@@ -12,7 +12,7 @@ class QuestionBox < GameObject
 
   def setup
     @image = Image["question-box.png"]
-    #@color = Color.new(0xff808080)
+    @color = Color.new(0xff808080)
     self.width = 32
     self.height = 32
     self.rotation_center = :bottom_left
