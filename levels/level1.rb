@@ -31,7 +31,7 @@ class Level1 < Chingu::GameState
 
     @car = Car.create(:x => 600, :y => 440)
 
-    @font = Gosu::Font.new $window, Gosu::default_font_name, 40
+    @font = Gosu::Font.new $window, "media/uni05_54-webfont.ttf", 60
   end
 
   def update
@@ -68,7 +68,7 @@ class Level1 < Chingu::GameState
   end
 
   def draw
-    @font.draw_rel("WELCOME", $window.width / 2 - 70, $window.height / 2, 500, 0, 0.5, 1, 1, 0xaaffffff)
+    @font.draw_rel("MATUSITA", $window.width / 2 - 130, 60, 500, 0, 0.5, 1, 1, 0xccfc8e2e)
 
     @parallax_collection.each do |parallax|
       parallax.draw
