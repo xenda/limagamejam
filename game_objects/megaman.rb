@@ -21,11 +21,11 @@ class Megaman < Chingu::GameObject
     @damage_per_turn = 1
 
     @animations = {}
-    @animations[:normal] = Animation.new(:file => "media/megaman-sprites-normal.png", :size => [72,72], :delay => 200);
-    @animations[:normal].frame_names = { :left => 0..1, :right => 2..3 }
+    @animations[:normal] = Animation.new(:file => "media/char_001_sprite.png", :size => [72,72], :delay => 200);
+    @animations[:normal].frame_names = { :left => 0..3, :right => 4..5 }
 
-    @animations[:run] = Animation.new(:file => "media/megaman-sprites-run.png", :size => [72,72], :delay => 80);
-    @animations[:run].frame_names = { :left => 0..2, :right => 3..5 }
+    @animations[:run] = Animation.new(:file => "media/char_001_sprite.png", :size => [72,70], :delay => 100);
+    @animations[:run].frame_names = { :left => 0..3, :right => 4..7 }
 
     @animations[:jump] = Animation.new(:file => "media/megaman-sprites-jump.png", :size => [90,90]);
     @animations[:jump].frame_names = { :left => 0..1, :right => 2..3 }
@@ -144,7 +144,7 @@ class Megaman < Chingu::GameObject
         @image = @animations[:jump][@direction][index_for_right]
       end
     else
-      @image = @animations[@state][@direction].next
+      @image = @animations[@state][@direction].next!
     end
 
   
@@ -161,6 +161,11 @@ class Megaman < Chingu::GameObject
         end
       end
     end
+
+    self.each_collision(GoalTree) do |me, tree|
+      @health += 0.05 unless @health >= 100
+    end
+
 
     self.each_collision(PassableBox) do |me, stone_wall|
         @jumping = false
