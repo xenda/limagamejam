@@ -29,6 +29,7 @@ class Bat < GameObject
     cache_bounding_box
   end
 
+
   def update
   	
     case @state
@@ -37,7 +38,7 @@ class Bat < GameObject
   		when :fly_right, :fly_left
   			@image = @animations[@state].next
     end
-
+    
   end
 
   def move(x, y)

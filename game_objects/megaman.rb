@@ -60,9 +60,9 @@ class Megaman < Chingu::GameObject
     if @jumping
       @state = :jump
     else
-      @state = :run  
+      @state = :run
     end
-    
+
     @direction = :right
 
     if self.x < 3200
@@ -137,5 +137,13 @@ class Megaman < Chingu::GameObject
         end
       end
     end
+
+
+    self.each_collision(PassableBox) do |me, stone_wall|
+        @jumping = false
+        # me.y = stone_wall.bb.top-1
+    end
+
+
   end
 end

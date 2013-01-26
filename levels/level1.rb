@@ -51,7 +51,7 @@ class Level1 < Chingu::GameState
    end
 
   def edit
-    push_game_state(GameStates::Edit.new(:grid => [32,32], :classes => [Car, QuestionBox, Floor, Bat]))
+    push_game_state(GameStates::Edit.new(:grid => [32,32], :classes => [ GoalTree, Car, PassableBox, Floor, Bat]))
   end
 
 
@@ -78,7 +78,7 @@ class Level1 < Chingu::GameState
       end
     end
 
-    @hero.each_collision(QuestionBox) do |player, question_box|
+    @hero.each_collision(PassableBox) do |player, question_box|
       if player.y.to_i <= question_box.bb.top.to_i + 5
         player.velocity_y = 0
         player.y = question_box.bb.top
@@ -90,13 +90,13 @@ class Level1 < Chingu::GameState
   end
 
   def draw
-    @font.draw_rel("MATUSITA", $window.width / 2 - 130, 260, 500, 0, 0.5, 1, 1, 0xccfc8e2e)
-      $window.post_process(@pixelate) do
-        @parallax_collection.each do |parallax|
-          parallax.draw
-        end
-        super
+    @font.draw_rel("MATUSITA", $window.width / 2 - 130, 260, 10, 0, 0.5)
+    $window.post_process(@pixelate) do
+      @parallax_collection.each do |parallax|
+        parallax.draw
       end
+      super
+    end
   end
 
 end

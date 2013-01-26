@@ -7,7 +7,7 @@ class Level0 < Chingu::GameState
   def initialize(options = {})
     super(options)
 
-    self.viewport.game_area = [0, 0, 2200, 480]
+    self.viewport.game_area = [0, 0, 1700, 480]
 
     self.input = { :escape => :exit, :e => :edit }
 
@@ -62,13 +62,15 @@ class Level0 < Chingu::GameState
   end
 
   def draw
-    @font.draw_rel("MATUSITA", $window.width / 2 - 130, 260, 500, 0, 0.5, 1, 1, 0xccfc8e2e)
       $window.post_process(@pixelate) do
         @parallax_collection.each do |parallax|
           parallax.draw
         end
         super
       end
+
+    @font.draw_rel("MATUSITA", $window.width / 2 - 130, 260, 500, 0, 0.5, 1, 1, 0xccfc8e2e)
+
   end
 
 end
