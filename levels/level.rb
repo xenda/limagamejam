@@ -135,10 +135,13 @@ class Level < Chingu::GameState
     end
 
     @hero.each_collision(Bat) do |me, bat|
+      puts "bat damage"
+      Gosu::Song.new($window, "media/damage.ogg").play
       me.health -= 0.2 unless me.health <= 15
     end
 
     @hero.each_collision(Doctor) do |me, doctor|
+      Gosu::Song.new($window, "media/damage.ogg").play
       me.health -= 0.2 unless me.health <= 15
       me.hit_by(doctor)
       # if me.direction == :right
@@ -212,14 +215,14 @@ class Level < Chingu::GameState
   def draw
     @lifebar.x = self.viewport.x + 10;
     @lifebar.y = self.viewport.y + 10;
-    $window.post_process(@bloom, @blur) do
+    # $window.post_process(@bloom, @blur) do
     # $window.post_process(@bloom) do
       @parallax_collection.each do |parallax|
         parallax.draw
 
 
       end
-    end
+    #end
     
     super
     @font.draw_rel("MATUSITA", $window.width / 2 - 130, 160, 50, 0, 0.5)
