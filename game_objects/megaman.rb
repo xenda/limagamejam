@@ -165,7 +165,7 @@ class Megaman < Chingu::GameObject
       @image = @animations[@state][@direction].next!
     end
 
-    self.each_collision(Floor) do |me, block|
+    self.each_collision(Floor, FloorMini) do |me, block|
       if self.velocity_y < 0
         me.y = block.bb.bottom + me.image.height * self.factor_y
         self.velocity_y = 0
