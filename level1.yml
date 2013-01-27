@@ -16,7 +16,7 @@
     :factor_y: 1.0
     :alpha: 255
 - Bat:
-    :x: 205.0
+    :x: 231.0
     :y: -1061.0
     :angle: 0
     :zorder: 100
@@ -24,7 +24,7 @@
     :factor_y: 1.0
     :alpha: 255
 - Bat:
-    :x: 137.0
+    :x: 113.0
     :y: -1061.0
     :angle: 0
     :zorder: 100
@@ -32,7 +32,7 @@
     :factor_y: 1.0
     :alpha: 255
 - Bat:
-    :x: 521.0
+    :x: 547.0
     :y: -1421.0
     :angle: 0
     :zorder: 100
@@ -48,7 +48,7 @@
     :factor_y: 1.0
     :alpha: 255
 - Bat:
-    :x: 287.0
+    :x: 265.0
     :y: -1061.0
     :angle: 0
     :zorder: 100
@@ -56,7 +56,7 @@
     :factor_y: 1.0
     :alpha: 255
 - Bat:
-    :x: 197.0
+    :x: 191.0
     :y: -1061.0
     :angle: 0
     :zorder: 100
@@ -64,8 +64,8 @@
     :factor_y: 1.0
     :alpha: 255
 - Doctor:
-    :x: -13072.49999999666
-    :y: 209602.5
+    :x: -14132.699999996232
+    :y: 226437.5
     :angle: 0
     :zorder: 300
     :factor_x: 1.0
@@ -122,6 +122,14 @@
 - WoodFence:
     :x: -144.0
     :y: 440.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Platform:
+    :x: 288.0
+    :y: 216.0
     :angle: 0
     :zorder: 100
     :factor_x: 1.0

@@ -49,12 +49,19 @@ class Level < Chingu::GameState
     #@enemy = Enemy.create(:x => 300, :y => 460)
     @floor = Floor.create(:x => 0, :y => 480)
     @font = Gosu::Font.new $window, "media/uni05_54-webfont.ttf", 60
+    @small_font = Gosu::Font.new $window, "media/uni05_54-webfont.ttf", 40
     @lifebar = BarLife.create(:x => 10, :y => 10)
     @lifebar.hero = @hero
 
     @music = Gosu::Song.new($window, "media/background2.mp3")
     @music.play
+    @timer = 100
+    every(1000) { update_time }
+   end
 
+
+   def update_time
+     @timer -= 1
    end
 
   def edit
@@ -162,6 +169,7 @@ class Level < Chingu::GameState
     end
 
     @font.draw_rel("MATUSITA", $window.width / 2 - 130, 160, 10, 0, 0.5)
+    @small_font.draw_rel("Tiempo restante: #{@timer}", 10, 30, 10, 0, 0.5)
   end
 
 end
