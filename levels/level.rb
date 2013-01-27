@@ -217,7 +217,6 @@ class Level < Chingu::GameState
     #end
     
     super
-    @font.draw_rel("MATUSITA", $window.width / 2 - 130, 160, 550, 0, 0.5)
     @small_font.draw_rel("Tiempo restante: #{@timer}", 10, 30, 550, 0, 0.5)
     @small_font.draw_rel("Vida: #{@hero.health.round}", $window.width - 170, 30 , 550, 0, 0.5)
     
