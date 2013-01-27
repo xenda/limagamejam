@@ -212,19 +212,16 @@ class Level < Chingu::GameState
   def draw
     @lifebar.x = self.viewport.x + 10;
     @lifebar.y = self.viewport.y + 10;
-    $window.post_process(@bloom, @blur) do
-    # $window.post_process(@bloom) do
+    #$window.post_process(@bloom, @blur) do
       @parallax_collection.each do |parallax|
         parallax.draw
-
-
       end
-    end
+    #end
     
     super
-    @font.draw_rel("MATUSITA", $window.width / 2 - 130, 160, 50, 0, 0.5)
-    @small_font.draw_rel("Tiempo restante: #{@timer}", 10, 30, 50, 0, 0.5)
-    @small_font.draw_rel("Vida: #{@hero.health.round}", $window.width - 160, 30 , 50, 0, 0.5)
+    @font.draw_rel("MATUSITA", $window.width / 2 - 130, 160, 550, 0, 0.5)
+    @small_font.draw_rel("Tiempo restante: #{@timer}", 10, 30, 550, 0, 0.5)
+    @small_font.draw_rel("Vida: #{@hero.health.round}", $window.width - 170, 30 , 550, 0, 0.5)
     
   end
 
