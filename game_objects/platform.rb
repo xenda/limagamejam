@@ -11,23 +11,25 @@ class Platform < GameObject
   end
 
   def setup
+    @direction = :right
     @image = Image["box_single.png"]
     @bounding_x = [@x - 100, @x + 100]
     self.width  = 31
     self.height = 31
     self.rotation_center = :bottom_left
+
     cache_bounding_box
   end
 
   def update
-    if @x < @bounding_x.first
-      @x += 1
-      @direction = :right
-    end
+    @direction = :right if @x < @bounding_x.first
+    @direction = :left  if @x > @bounding_x.last
 
-    if @x > @bounding_x.last
-      @x -= 1
-      @direction = :left
+    case @direction
+      when :right
+        @x += 1
+      when :left
+        @x -= 1
     end
 
   end
