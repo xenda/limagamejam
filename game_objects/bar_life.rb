@@ -16,7 +16,7 @@ class BarLife < GameObject
   def draw
   	#BORDER
   	#$window.draw_rect(Chingu::Rect.new(@x, @y, @width, @height), Gosu::Color.new(0xff000000), @zorder)
-  	
+
   	#FILL
     width = (@hero.health / 100.0) * $window.width.to_f - 20
 	  $window.fill_rect(Chingu::Rect.new(@x, @y, width , @height), Gosu::Color.new(0xffffffff), @zorder)	

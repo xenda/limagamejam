@@ -1,5 +1,5 @@
 class Megaman < Chingu::GameObject
-  trait :bounding_box, :scale => 0.8, debug: true
+  trait :bounding_box, :scale => 0.6, debug: true
   traits :timer, :collision_detection,  :velocity
 
   attr_accessor :direction, :jumping, :health
