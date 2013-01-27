@@ -21,7 +21,7 @@ class Level < Chingu::GameState
     @bloom.glare_size = 0.05
     @bloom.power = 0.05
 
-    # GAME_OBJECTS.each(&:destroy_all)
+    GAME_OBJECTS.each(&:destroy_all)
     load_game_objects
 
 
