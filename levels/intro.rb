@@ -7,7 +7,7 @@ class Intro < Chingu::GameState
   end
 
   def start_game
-    push_game_state(Chingu::GameStates::FadeTo.new(Level0.new, :speed => 10))
+    push_game_state(Chingu::GameStates::FadeTo.new(Level1.new, :speed => 10))
   end
 
   def update

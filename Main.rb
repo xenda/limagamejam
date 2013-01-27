@@ -24,7 +24,7 @@ class MainWindow < Chingu::Window
 
   def setup
     # retrofy
-    switch_game_state(Level1)
+    switch_game_state(Intro)
   end
 
 end
