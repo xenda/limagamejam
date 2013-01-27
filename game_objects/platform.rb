@@ -13,7 +13,7 @@ class Platform < GameObject
   def setup
     @image = Image["box_single.png"]
     @bounding_x = [@x - 100, @x + 100]
-    self.width = 31
+    self.width  = 31
     self.height = 31
     self.rotation_center = :bottom_left
     cache_bounding_box
