@@ -16,7 +16,10 @@ class MainWindow < Chingu::Window
     super 640, 480, false
     Gosu::enable_undocumented_retrofication
     self.caption = "Matusita"
+    self.factor = 2
 
+    retrofy rescue nil
+    
     self.input = {
       :escape => :exit
     }

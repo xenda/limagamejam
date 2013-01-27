@@ -57,6 +57,8 @@ class Level < Chingu::GameState
     @music.play
     @timer = 100
     every(1000) { update_time }
+
+    
    end
 
 
@@ -167,7 +169,8 @@ class Level < Chingu::GameState
 
   def draw
 
-    $window.post_process(@bloom, @blur) do
+    #$window.post_process(@bloom, @blur) do
+    $window.post_process(@bloom) do
       @parallax_collection.each do |parallax|
         parallax.draw
       end
