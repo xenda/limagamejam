@@ -28,7 +28,7 @@ class Level < Chingu::GameState
     @game_object_map = GameObjectMap.new(:game_objects => Platform.all, :grid => @grid)
     @parallax_collection = []
 
-    @parallax = Parallax.new(:x => 0, :y => 0, :rotation_center => :top_center)
+    @parallax = Parallax.new(:x => 0, :y => 0, :rotation_center => :top_left)
     @parallax << { :image => media_path("BG_003.png"), :damping => 4, :repeat_x => true, :repeat_y => true}
 
     # @second_parallax = Parallax.new(:x => 0, :y => 0, :rotation_center => :top_left)
