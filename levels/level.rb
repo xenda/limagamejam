@@ -94,8 +94,8 @@ class Level < Chingu::GameState
     end
 
    def restart
+     @hero.reset
      restore_player_position
-     @hero.health = 100
    end
 
   def update
@@ -141,7 +141,7 @@ class Level < Chingu::GameState
         @lifebar.damage
       end
       
-      @hero.each_collision(Saw) do |me, bat|
+      @hero.each_collision(Saw) do |me, saw|
         me.damaged = true
       end
 
@@ -156,7 +156,7 @@ class Level < Chingu::GameState
       Bat.all.each do |bat| 
         bat.hunting = false
       end
-      hero_resting true
+      hero_resting = true
       @colliding = true
     end
     @hero.resting = hero_resting
@@ -171,7 +171,7 @@ class Level < Chingu::GameState
       @colliding = true
     end
 
-    if @hero.y > $window.height + 200
+    if @hero.y > $window.height + @hero.height
       restore_player_position
     end
 
