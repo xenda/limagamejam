@@ -28,7 +28,7 @@ class Level < Chingu::GameState
     @game_object_map = GameObjectMap.new(:game_objects => Platform.all, :grid => @grid)
     @parallax_collection = []
 
-    @parallax = Parallax.new(:x => 0, :y => 0, :rotation_center => :top_center)
+    @parallax = Parallax.new(:x => 0, :y => 0, :rotation_center => :top_left)
     @parallax << { :image => media_path("BG_003.png"), :damping => 4, :repeat_x => true, :repeat_y => true}
 
     # @second_parallax = Parallax.new(:x => 0, :y => 0, :rotation_center => :top_left)
@@ -36,12 +36,12 @@ class Level < Chingu::GameState
 
     # @second_parallax.camera_y = self.viewport.game_area.last * -1
 
-    @third_parallax = Parallax.new(:x => 0, :y => 0, :rotation_center => :top_center)
+    @third_parallax = Parallax.new(:x => 0, :y => 0, :rotation_center => :top_left)
     @third_parallax << { :image => media_path("BG_002.png"), :damping => 2, :repeat_x => true, :repeat_y => false}
 
     @third_parallax.camera_y = self.viewport.game_area.last * -1
 
-    @fourth_parallax = Parallax.new(:x => 0, :y => 0, :rotation_center => :top_center)
+    @fourth_parallax = Parallax.new(:x => 0, :y => 0, :rotation_center => :top_left)
     @fourth_parallax << { :image => media_path("BG_001.png"), :damping => 1, :repeat_x => true, :repeat_y => false}
 
     @fourth_parallax.camera_y = self.viewport.game_area.last * -1
@@ -140,6 +140,7 @@ class Level < Chingu::GameState
 
     @hero.each_collision(Doctor) do |me, doctor|
       me.health -= 0.2 unless me.health <= 15
+      me.hit_by(doctor)
       # if me.direction == :right
       #   me.x = me.previous_x - 150
       # else
@@ -209,21 +210,22 @@ class Level < Chingu::GameState
   end
 
   def draw
-
     @lifebar.x = self.viewport.x + 10;
     @lifebar.y = self.viewport.y + 10;
-    #$window.post_process(@bloom, @blur) do
-    #$window.post_process(@bloom) do
+    $window.post_process(@bloom, @blur) do
+    # $window.post_process(@bloom) do
       @parallax_collection.each do |parallax|
         parallax.draw
+
+
       end
-      super
-    #end
-
-
-    @font.draw_rel("MATUSITA", $window.width / 2 - 130, 160, 10, 0, 0.5)
-    @small_font.draw_rel("Tiempo restante: #{@timer}", 10, 30, 10, 0, 0.5)
-    @small_font.draw_rel("Vida: #{@hero.health.round}", $window.width - 160, 30 , 10, 0, 0.5)
+    end
+    
+    super
+    @font.draw_rel("MATUSITA", $window.width / 2 - 130, 160, 50, 0, 0.5)
+    @small_font.draw_rel("Tiempo restante: #{@timer}", 10, 30, 50, 0, 0.5)
+    @small_font.draw_rel("Vida: #{@hero.health.round}", $window.width - 160, 30 , 50, 0, 0.5)
+    
   end
 
 end

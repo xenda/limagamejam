@@ -13,6 +13,7 @@ def media_path(file); File.expand_path "media/#{file}", File.dirname(__FILE__) e
 
 class MainWindow < Chingu::Window
   def initialize
+
     #super 1200, 600, false
     super 640, 480, false
 

@@ -1,5 +1,5 @@
 class Megaman < Chingu::GameObject
-  trait :bounding_box, :scale => 0.8
+  trait :bounding_box, :scale => 0.6, debug: true
   traits :timer, :collision_detection,  :velocity
 
   attr_accessor :direction, :jumping, :health, :resting
@@ -113,6 +113,7 @@ class Megaman < Chingu::GameObject
     # flash red for 300 millisec when hit, then go back to normal
     #
     if [Doctor, Bat].include? object
+      puts "Wiii"
       during(100) { self.color = @red; self.mode = :additive }.then { self.color = @white; self.mode = :default }
     end
   end
@@ -159,15 +160,15 @@ class Megaman < Chingu::GameObject
       winking
     elsif @jumping
       if self.velocity_y < 0
-        @image = @animations[:jump][@direction][index_for_left]
+        @image = @animations[:jump][@direction][0]
       else
-        @image = @animations[:jump][@direction][index_for_right]
+        @image = @animations[:jump][@direction][1]
       end
     else
       @image = @animations[@state][@direction].next!
     end
 
-    self.each_collision(Floor) do |me, block|
+    self.each_collision(Floor, FloorMini) do |me, block|
       if self.velocity_y < 0
         me.y = block.bb.bottom + me.image.height * self.factor_y
         self.velocity_y = 0

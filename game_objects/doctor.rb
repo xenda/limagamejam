@@ -1,5 +1,5 @@
 class Doctor < Chingu::GameObject
-  trait :bounding_box, :scale => 0.8 #, debug: true
+  trait :bounding_box, :scale => 0.8, debug: true
   traits :timer, :collision_detection , :timer, :velocity
 
   def setup
@@ -31,7 +31,7 @@ class Doctor < Chingu::GameObject
   def update
     self.x -= 0.35
     @image = @animations[@state][@direction].next!
-    self.each_collision(Floor) do |me, block|
+    self.each_collision(Floor, FloorMini) do |me, block|
       if self.velocity_y < 0
         me.y = block.bb.bottom + me.image.height * self.factor_y
         self.velocity_y = 0
