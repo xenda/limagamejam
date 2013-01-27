@@ -1,5 +1,5 @@
 class GoalTree < GameObject
-  trait :bounding_box, :debug => true, :scale => 0.2
+  trait :bounding_box,:scale => 0.5#, :debug => true
   trait :collision_detection
 
   # def self.solid
@@ -14,8 +14,8 @@ class GoalTree < GameObject
   def setup
     @image = Image["old_tree.png"]
 
-    self.width = 726
-    self.height = 798
+    self.width = 350
+    self.height = 383
 
     self.rotation_center = :bottom_center
     cache_bounding_box

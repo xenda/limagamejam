@@ -1,5 +1,5 @@
 class EvilTree < GameObject
-  trait :bounding_box, :debug => true, :scale => 0.2
+  trait :bounding_box, :scale => 0.5#, :debug => true
   trait :collision_detection
 
   # def self.solid
@@ -14,7 +14,7 @@ class EvilTree < GameObject
   def setup
     @image = Image["evil_tree.png"]
 
-    self.width = 726
+    self.width = 350
     self.height = 798
 
     self.rotation_center = :bottom_center
