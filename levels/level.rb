@@ -5,12 +5,12 @@ class Level < Chingu::GameState
   traits :viewport, :timer
   attr_accessor :game_object_map
 
-  GAME_OBJECTS = [Saw, WoodFence, Pipe, Pipe2, BoxDouble, Platform, Doctor, SafeTree, GoalTree, EvilTree, Car, Floor, FloorMini, Bat]
+  GAME_OBJECTS = [Lights, Saw, WoodFence, Pipe, Pipe2, BoxDouble, Platform, Doctor, SafeTree, GoalTree, EvilTree, Car, Floor, FloorMini, Bat]
 
   def initialize(options = {})
     super(options)
 
-    self.viewport.game_area = [0, 0, 6035, 520]
+    self.viewport.game_area = [0, 0, 8000, 520]
 
     self.input = { :escape => :exit, :e => :edit, :holding_left_control => :enable_blur,
       :released_left_control => :disable_blur, :r => :restart }
@@ -41,15 +41,15 @@ class Level < Chingu::GameState
 
     @third_parallax.camera_y = self.viewport.game_area.last * -1
 
-    @fourth_parallax = Parallax.new(:x => 0, :y => 0, :rotation_center => :top_left)
-    @fourth_parallax << { :image => media_path("BG_001.png"), :damping => 1, :repeat_x => true, :repeat_y => false}
+    # @fourth_parallax = Parallax.new(:x => 0, :y => 0, :rotation_center => :top_left)
+    # @fourth_parallax << { :image => media_path("BG_001.png"), :damping => 1, :repeat_x => true, :repeat_y => false}
 
-    @fourth_parallax.camera_y = self.viewport.game_area.last * -1
+    # @fourth_parallax.camera_y = self.viewport.game_area.last * -1
 
     @parallax_collection << @parallax
     # @parallax_collection << @second_parallax
     @parallax_collection << @third_parallax
-    @parallax_collection << @fourth_parallax
+    # @parallax_collection << @fourth_parallax
 
     @saved_x, @saved_y = [100, 494]
     @hero = Megaman.create(:x => @saved_x, :y => @saved_y)
@@ -103,8 +103,8 @@ class Level < Chingu::GameState
     $gosu_blocks.clear if defined? $gosu_blocks # Workaround for Gosu bug (0.7.45)
 
     # REMOVE THINGS
-    Bat.destroy_if { |bat| bat.outside_window? }
-    Doctor.destroy_if { |doctor| doctor.outside_window? }
+    #Bat.destroy_if { |bat| bat.outside_window? }
+    #Doctor.destroy_if { |doctor| doctor.outside_window? }
 
     self.viewport.center_around(@hero)
 
@@ -120,9 +120,9 @@ class Level < Chingu::GameState
     @third_parallax.camera_y = self.viewport.y - 310
     @third_parallax.update
 
-    @fourth_parallax.camera_x = self.viewport.x
-    @fourth_parallax.camera_y = self.viewport.y - 110
-    @fourth_parallax.update
+    # @fourth_parallax.camera_x = self.viewport.x
+    # @fourth_parallax.camera_y = self.viewport.y - 110
+    # @fourth_parallax.update
 
     # REGULAR COLLISIONS
     @hero.each_collision(Platform) do |player, platform|
@@ -156,7 +156,7 @@ class Level < Chingu::GameState
       Bat.all.each do |bat| 
         bat.hunting = false
       end
-      hero_resting true
+      hero_resting = true
       @colliding = true
     end
     @hero.resting = hero_resting

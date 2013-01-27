@@ -1,30 +1,22 @@
 ---
-- Car:
-    :x: 1062.0
-    :y: 460.0
-    :angle: 0
-    :zorder: 100
-    :factor_x: 1.0
-    :factor_y: 1.0
-    :alpha: 255
 - GoalTree:
-    :x: 2628.0
-    :y: 496.0
+    :x: 6156.0
+    :y: 482.0
     :angle: 0
     :zorder: 100
     :factor_x: 1.0
     :factor_y: 1.0
     :alpha: 255
 - EvilTree:
-    :x: 1584.0
-    :y: 496.0
+    :x: 1890.0
+    :y: 492.0
     :angle: 0
     :zorder: 100
     :factor_x: 1.0
     :factor_y: 1.0
     :alpha: 255
 - Platform:
-    :x: 814.0
+    :x: 827.0
     :y: 180.0
     :angle: 0
     :zorder: 100
@@ -56,7 +48,7 @@
     :factor_y: 1.0
     :alpha: 255
 - Platform:
-    :x: 284.0
+    :x: 297.0
     :y: 378.0
     :angle: 0
     :zorder: 100
@@ -80,7 +72,7 @@
     :factor_y: 1.0
     :alpha: 255
 - Platform:
-    :x: 170.0
+    :x: 183.0
     :y: 378.0
     :angle: 0
     :zorder: 100
@@ -88,15 +80,15 @@
     :factor_y: 1.0
     :alpha: 255
 - Saw:
-    :x: 2124.0
-    :y: 176.0
-    :angle: 19636
+    :x: 2286.0
+    :y: 286.0
+    :angle: 24229
     :zorder: 100
     :factor_x: 1.0
     :factor_y: 1.0
     :alpha: 255
 - Platform:
-    :x: 514.0
+    :x: 527.0
     :y: 288.0
     :angle: 0
     :zorder: 100
@@ -104,7 +96,7 @@
     :factor_y: 1.0
     :alpha: 255
 - Platform:
-    :x: 406.0
+    :x: 419.0
     :y: 289.0
     :angle: 0
     :zorder: 100
@@ -128,7 +120,7 @@
     :factor_y: 1.0
     :alpha: 255
 - Platform:
-    :x: 922.0
+    :x: 935.0
     :y: 180.0
     :angle: 0
     :zorder: 100
@@ -145,17 +137,17 @@
     :alpha: 255
 - Saw:
     :x: 3366.0
-    :y: 558.0
-    :angle: 2844
+    :y: 585.5
+    :angle: 7437
     :zorder: 100
     :factor_x: 1.0
     :factor_y: 1.0
     :alpha: 255
 - Bat:
-    :x: 191.0
-    :y: 126.0
+    :x: 331.3049062229789
+    :y: 327.50278791156995
     :angle: 0
-    :zorder: 100
+    :zorder: 500
     :factor_x: 1.0
     :factor_y: 1.0
     :alpha: 255
@@ -262,4 +254,260 @@
     :zorder: 100
     :factor_x: 5.0
     :factor_y: 1.0
+    :alpha: 255
+- Saw:
+    :x: 990.0
+    :y: 503.5
+    :angle: 5102
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- FloorMini:
+    :x: 6102.0
+    :y: 522.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 5.0
+    :factor_y: 1.0
+    :alpha: 255
+- FloorMini:
+    :x: 6300.0
+    :y: 522.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 5.0
+    :factor_y: 1.0
+    :alpha: 255
+- SafeTree:
+    :x: 2952.0
+    :y: 491.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 0.5
+    :factor_y: 0.49869451697127937
+    :alpha: 255
+- Platform:
+    :x: 3536.0
+    :y: 306.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Platform:
+    :x: 3644.0
+    :y: 306.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Platform:
+    :x: 3831.0
+    :y: 234.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Platform:
+    :x: 3939.0
+    :y: 234.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- WoodFence:
+    :x: 3708.0
+    :y: 486.0
+    :angle: 0
+    :zorder: 104
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- BoxDouble:
+    :x: 3870.0
+    :y: 486.0
+    :angle: 360
+    :zorder: 105
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 254
+- Platform:
+    :x: 4137.0
+    :y: 288.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Pipe:
+    :x: 4428.0
+    :y: 486.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Saw:
+    :x: 4176.0
+    :y: 503.5
+    :angle: 5023
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- WoodFence:
+    :x: 1260.0
+    :y: 490.0
+    :angle: 0
+    :zorder: 105
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- WoodFence:
+    :x: 1423.0
+    :y: 491.0
+    :angle: 0
+    :zorder: 102
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Pipe2:
+    :x: 4500.0
+    :y: 486.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Pipe:
+    :x: 4549.0
+    :y: 438.0
+    :angle: 45
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Car:
+    :x: 4770.0
+    :y: 450.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Platform:
+    :x: 4868.0
+    :y: 342.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Platform:
+    :x: 4994.0
+    :y: 252.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Platform:
+    :x: 5105.0
+    :y: 252.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Platform:
+    :x: 5282.0
+    :y: 324.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- WoodFence:
+    :x: 5382.0
+    :y: 485.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Saw:
+    :x: 5598.0
+    :y: 253.0
+    :angle: 2288
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Bat:
+    :x: 4874.0
+    :y: 360.0
+    :angle: 0
+    :zorder: 500
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Bat:
+    :x: 5088.0
+    :y: 324.0
+    :angle: 0
+    :zorder: 500
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Bat:
+    :x: 4982.0
+    :y: 396.0
+    :angle: 0
+    :zorder: 500
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Doctor:
+    :x: -71.40000000000504
+    :y: 2259.0
+    :angle: 0
+    :zorder: 300
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Bat:
+    :x: 2661.0
+    :y: 270.0
+    :angle: 0
+    :zorder: 500
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Bat:
+    :x: 2569.0
+    :y: 288.0
+    :angle: 0
+    :zorder: 500
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Doctor:
+    :x: 5513.549999999575
+    :y: 482.0
+    :angle: 0
+    :zorder: 300
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Lights:
+    :x: 594.0
+    :y: 309.0
+    :angle: 0
+    :zorder: 128
+    :factor_x: 1
+    :factor_y: 1
     :alpha: 255

@@ -1,5 +1,5 @@
 class Platform < GameObject
-  trait :bounding_box, scale: 0.8, :debug => true
+  trait :bounding_box, scale: 0.8, :debug => false
   trait :collision_detection, :velocity
 
   attr_accessor :previous_x, :direction

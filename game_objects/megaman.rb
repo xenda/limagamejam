@@ -1,5 +1,5 @@
 class Megaman < Chingu::GameObject
-  trait :bounding_box, :scale => 0.6, debug: true
+  trait :bounding_box, :scale => 0.6, :debug => false
   traits :timer, :collision_detection,  :velocity
 
   attr_accessor :direction, :jumping, :health, :resting, :damaged, :receiving_damage
@@ -39,7 +39,7 @@ class Megaman < Chingu::GameObject
     @jumping = false
     @died = false
 
-    self.zorder = 300
+    self.zorder = 100
     self.acceleration_y  = 0.5
     self.max_velocity    = 15
     self.rotation_center = :bottom_center

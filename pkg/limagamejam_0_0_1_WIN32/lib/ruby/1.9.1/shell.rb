@@ -26,7 +26,7 @@ class Shell
   extend Exception2MessageMapper
 
 #  @cascade = true
-  # debug: true -> normal debug
+  # :debug => false -> normal debug
   # debug: 1    -> eval definition debug
   # debug: 2    -> detail inspect debug
   @debug = false

@@ -1,4 +1,4 @@
-class Floor < GameObject
+class Lights < GameObject
   trait :bounding_box, :debug => false
   trait :collision_detection
   
@@ -11,11 +11,7 @@ class Floor < GameObject
   end
 
   def setup
-    @image = Image["burried.png"]
-    @color = Color.new(0xff808080)
-    self.width = 8000
-    self.height = 40
-    self.rotation_center = :bottom_left
+    @image = Image["BG_001.png"]
     cache_bounding_box
   end
 end

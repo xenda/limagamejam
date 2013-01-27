@@ -1,5 +1,5 @@
 class Doctor < Chingu::GameObject
-  trait :bounding_box, :scale => 0.8, debug: true
+  trait :bounding_box, :scale => 0.8, :debug => false
   traits :timer, :collision_detection , :timer, :velocity
 
   def setup

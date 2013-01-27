@@ -1,5 +1,5 @@
 class EvilTree < GameObject
-  trait :bounding_box, :scale => 0.5, :debug => true
+  trait :bounding_box, :scale => 0.5, :debug => false
   trait :collision_detection
 
   # def self.solid

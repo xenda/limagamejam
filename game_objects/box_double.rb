@@ -1,5 +1,5 @@
 class BoxDouble < GameObject
-  trait :bounding_box, :debug => true
+  trait :bounding_box, :debug => false
   trait :collision_detection
 
   def self.solid
