@@ -110,6 +110,7 @@ class Megaman < Chingu::GameObject
     # flash red for 300 millisec when hit, then go back to normal
     #
     if [Doctor, Bat].include? object
+      puts "Wiii"
       during(100) { self.color = @red; self.mode = :additive }.then { self.color = @white; self.mode = :default }
     end
   end
@@ -154,9 +155,9 @@ class Megaman < Chingu::GameObject
       winking
     elsif @jumping
       if self.velocity_y < 0
-        @image = @animations[:jump][@direction][index_for_left]
+        @image = @animations[:jump][@direction][0]
       else
-        @image = @animations[:jump][@direction][index_for_right]
+        @image = @animations[:jump][@direction][1]
       end
     else
       @image = @animations[@state][@direction].next!

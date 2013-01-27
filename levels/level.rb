@@ -129,8 +129,9 @@ class Level < Chingu::GameState
       end
     end
 
-    @hero.each_collision(Bat, Doctor) do |me, tree|
+    @hero.each_collision(Bat, Doctor) do |me, monster|
       me.health -= 0.2 unless me.health <= 15
+      me.hit_by(monster)
       # if me.direction == :right
       #   me.x = me.previous_x - 150
       # else

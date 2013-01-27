@@ -11,6 +11,7 @@ class Bat < GameObject
     @state = :fly_right
     @direction = :right
     @start_y = @y
+    @start_x = @x
     @bounding_x = [@x - 35+rand(10), @x + 35+rand(10)]
     @bounding_y = [@y - 25+rand(5), @y + 25 + rand(5)]
     @towards_x = rand(1) == 0 ? 1 : -1
