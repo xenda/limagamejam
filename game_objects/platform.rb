@@ -27,7 +27,7 @@ class Platform < GameObject
 
     if @x > @bounding_x.last
       @x -= 1
-      @state = :left
+      @direction = :left
     end
 
   end
