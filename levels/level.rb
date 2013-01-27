@@ -28,7 +28,7 @@ class Level < Chingu::GameState
     @game_object_map = GameObjectMap.new(:game_objects => Platform.all, :grid => @grid)
     @parallax_collection = []
 
-    @parallax = Parallax.new(:x => 0, :y => 0, :rotation_center => :top_center)
+    @parallax = Parallax.new(:x => 0, :y => 0, :rotation_center => :top_left)
     @parallax << { :image => media_path("BG_003.png"), :damping => 4, :repeat_x => true, :repeat_y => true}
 
     # @second_parallax = Parallax.new(:x => 0, :y => 0, :rotation_center => :top_left)
@@ -65,6 +65,11 @@ class Level < Chingu::GameState
     @timer = 100
     every(1000) { update_time }
     every(5000) { save_player_position }
+
+    Bat.all.each do |bat|
+     bat.heroReference = @hero
+    end
+
    end
 
 
@@ -129,27 +134,34 @@ class Level < Chingu::GameState
       end
     end
 
-    @hero.each_collision(Bat, Doctor) do |me, monster|
+    @hero.each_collision(Bat) do |me, bat|
       me.health -= 0.2 unless me.health <= 15
-      me.hit_by(monster)
+    end
+
+    @hero.each_collision(Doctor) do |me, doctor|
+      me.health -= 0.2 unless me.health <= 15
+      me.hit_by(doctor)
       # if me.direction == :right
       #   me.x = me.previous_x - 150
       # else
       #   me.x = me.previous_x + 150
       # end
-      me.direction = me.direction == :left ? :right : :left
+      ##me.direction = me.direction == :left ? :right : :left
       # puts "Hit"
       me.velocity_y = -7
       # @jumping = true
 
     end
 
+    hero_resting = false
     @hero.each_collision(SafeTree) do |me, tree|
       Bat.all.each do |bat| 
         bat.hunting = false
       end
+      hero_resting true
       @colliding = true
     end
+    @hero.resting = hero_resting
 
     @hero.each_collision(GoalTree) do |me, tree|
       me.health += 0.05 unless me.health >= 100
