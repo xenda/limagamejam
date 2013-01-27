@@ -21,7 +21,7 @@ class Level < Chingu::GameState
     @bloom.glare_size = 0.05
     @bloom.power = 0.05
 
-    # GAME_OBJECTS.each(&:destroy_all)
+    GAME_OBJECTS.each(&:destroy_all)
     load_game_objects
 
 
@@ -95,6 +95,7 @@ class Level < Chingu::GameState
 
    def restart
      restore_player_position
+     @hero.health = 100
    end
 
   def update
@@ -136,36 +137,12 @@ class Level < Chingu::GameState
 
     if !@hero.receiving_damage
       @hero.each_collision(Bat) do |me, bat|
-        #puts "bat damage"
-        Gosu::Song.new($window, "media/damage.ogg").play
-        me.health -= 0.2 unless me.health <= 15
-
-        #puts @hero.direction
-        #me.max_velocity = 10
-        #me.velocity_x  = -4
-        me.x -= me.width * 0.3
-        #bat.x += me.width * 0.3
         me.damaged = true
-
-        me.velocity_y = -2
       end
     end
 
     if !@hero.receiving_damage
       @hero.each_collision(Doctor) do |me, doctor|
-        Gosu::Song.new($window, "media/damage.ogg").play
-        me.health -= 0.2 unless me.health <= 15
-        #me.velocity_x = -4
-        #me.hit_by(doctor) #cambio color al ser dañado
-        # if me.direction == :right
-        #   me.x = me.previous_x - 150
-        # else
-        #   me.x = me.previous_x + 150
-        # end
-        ##me.direction = me.direction == :left ? :right : :left
-        # puts "Hit"
-        me.velocity_y = -4
-        # @jumping = true
         me.damaged = true
       end
     end
@@ -229,19 +206,16 @@ class Level < Chingu::GameState
   def draw
     @lifebar.x = self.viewport.x + 10;
     @lifebar.y = self.viewport.y + 10;
-    # $window.post_process(@bloom, @blur) do
-    # $window.post_process(@bloom) do
+    $window.post_process(@bloom, @blur) do
       @parallax_collection.each do |parallax|
         parallax.draw
-
-
       end
-    #end
+    end
     
     super
-    @font.draw_rel("MATUSITA", $window.width / 2 - 130, 160, 50, 0, 0.5)
-    @small_font.draw_rel("Tiempo restante: #{@timer}", 10, 30, 50, 0, 0.5)
-    @small_font.draw_rel("Vida: #{@hero.health.round}", $window.width - 160, 30 , 50, 0, 0.5)
+    @font.draw_rel("MATUSITA", $window.width / 2 - 130, 160, 550, 0, 0.5)
+    @small_font.draw_rel("Tiempo restante: #{@timer}", 10, 30, 550, 0, 0.5)
+    @small_font.draw_rel("Vida: #{@hero.health.round}", $window.width - 170, 30 , 550, 0, 0.5)
     
   end
 

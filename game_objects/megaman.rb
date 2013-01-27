@@ -9,9 +9,9 @@ class Megaman < Chingu::GameObject
     self.input = {
       :holding_left  => :move_to_left,
       :holding_right => :move_to_right,
-      [:holding_up, :holding_space, :z] => :jump,
-      [:holding_left_control,  :x] => :add_multiplier,
-      [:released_left_control, :x] => :remove_multiplier
+      [:holding_up, :holding_space, :holding_x] => :jump,
+      [:holding_left_control,  :holding_z] => :add_multiplier,
+      [:released_left_control, :released_z] => :remove_multiplier
     }
 
     @receiving_damage = false
@@ -57,7 +57,11 @@ class Megaman < Chingu::GameObject
 
     
     unless @receiving_damage
-    
+      Gosu::Song.new($window, "media/damage.ogg").play
+      
+      @health -= 0.2 unless @health <= 15
+      @velocity_y = -4
+
       during(100) { 
           self.color = Gosu::Color.new(0xffff0000) 
           self.mode = :additive 

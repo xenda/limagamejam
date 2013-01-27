@@ -7,12 +7,6 @@ class Intro < Chingu::GameState
   end
 
   def start_game
-    # @image.x = 0
-    # @image.y = 0
-    # @image.width  = $window.width
-    # @image.height = $window.height
-    # during(4000){ @hero.x += 1 }
-    puts "Hi"
     push_game_state(Chingu::GameStates::FadeTo.new(Level0.new, :speed => 10))
   end
 
