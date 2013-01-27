@@ -141,6 +141,12 @@ class Level < Chingu::GameState
       me.health -= 0.2 unless me.health <= 15
     end
 
+    @hero.each_collision(Saw) do |me, bat|
+      puts "saw damage"
+      Gosu::Song.new($window, "media/damage.ogg").play
+      me.health -= 0.2 unless me.health <= 30
+    end
+
     @hero.each_collision(Doctor) do |me, doctor|
       Gosu::Song.new($window, "media/damage.ogg").play
       me.health -= 0.2 unless me.health <= 15
