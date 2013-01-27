@@ -140,7 +140,6 @@ class Level < Chingu::GameState
 
     if ( @hero.health || @timer ) <= 0
       @hero.die
-      puts "I'm dead!"
     end
 
   end

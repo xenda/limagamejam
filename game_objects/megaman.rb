@@ -104,7 +104,7 @@ class Megaman < Chingu::GameObject
 
   def die
     @died = true
-    self.velocity_y = -10
+    self.velocity_y = -9
   end
 
   def winking
