@@ -46,7 +46,7 @@ class Level < Chingu::GameState
     @parallax_collection << @fourth_parallax
 
     @hero = Megaman.create(:x => 100, :y => 460)
-    @enemy = Enemy.create(:x => 300, :y => 460)
+    # @enemy = Enemy.create(:x => 300, :y => 460)
     @floor = Floor.create(:x => 0, :y => 480)
     @font = Gosu::Font.new $window, "media/uni05_54-webfont.ttf", 60
     @small_font = Gosu::Font.new $window, "media/uni05_54-webfont.ttf", 40
@@ -137,6 +137,12 @@ class Level < Chingu::GameState
     end
 
     @lifebar.x = self.viewport.x + 10;
+
+    if ( @hero.health || @timer ) <= 0
+      @hero.die
+      puts "I'm dead!"
+    end
+
   end
 
   def enable_blur
@@ -170,6 +176,7 @@ class Level < Chingu::GameState
 
     @font.draw_rel("MATUSITA", $window.width / 2 - 130, 160, 10, 0, 0.5)
     @small_font.draw_rel("Tiempo restante: #{@timer}", 10, 30, 10, 0, 0.5)
+    @small_font.draw_rel("Vida: #{@hero.health.round}", $window.width - 160, 30 , 10, 0, 0.5)
   end
 
 end

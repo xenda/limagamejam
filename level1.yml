@@ -16,7 +16,7 @@
     :factor_y: 1.0
     :alpha: 255
 - Bat:
-    :x: 231.0
+    :x: 210.0
     :y: -1061.0
     :angle: 0
     :zorder: 100
@@ -24,7 +24,7 @@
     :factor_y: 1.0
     :alpha: 255
 - Bat:
-    :x: 113.0
+    :x: 100.0
     :y: -1061.0
     :angle: 0
     :zorder: 100
@@ -32,7 +32,7 @@
     :factor_y: 1.0
     :alpha: 255
 - Bat:
-    :x: 547.0
+    :x: 532.0
     :y: -1421.0
     :angle: 0
     :zorder: 100
@@ -48,7 +48,7 @@
     :factor_y: 1.0
     :alpha: 255
 - Bat:
-    :x: 265.0
+    :x: 262.0
     :y: -1061.0
     :angle: 0
     :zorder: 100
@@ -56,7 +56,7 @@
     :factor_y: 1.0
     :alpha: 255
 - Bat:
-    :x: 191.0
+    :x: 176.0
     :y: -1061.0
     :angle: 0
     :zorder: 100
@@ -64,8 +64,8 @@
     :factor_y: 1.0
     :alpha: 255
 - Doctor:
-    :x: -14132.699999996232
-    :y: 226437.5
+    :x: -14497.199999996084
+    :y: 232092.5
     :angle: 0
     :zorder: 300
     :factor_x: 1.0
@@ -134,4 +134,12 @@
     :zorder: 100
     :factor_x: 1.0
     :factor_y: 1.0
+    :alpha: 255
+- Doctor:
+    :x: 506.0
+    :y: 440.0
+    :angle: 0
+    :zorder: 300
+    :factor_x: 1
+    :factor_y: 1
     :alpha: 255
