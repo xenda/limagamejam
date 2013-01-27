@@ -60,7 +60,7 @@ class Level < Chingu::GameState
     @lifebar = BarLife.create(:x => 10, :y => 10)
     @lifebar.hero = @hero
 
-    @music = Gosu::Song.new($window, "media/background2.mp3")
+    @music = Gosu::Song.new($window, "media/background2.wav")
     @music.play
     @timer = 100
     every(1000) { update_time }
