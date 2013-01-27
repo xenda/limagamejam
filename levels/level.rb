@@ -46,7 +46,7 @@ class Level < Chingu::GameState
     @parallax_collection << @fourth_parallax
 
     @hero = Megaman.create(:x => 100, :y => 460)
-    # @enemy = Enemy.create(:x => 300, :y => 460)
+
     @floor = Floor.create(:x => 0, :y => 480)
     @font = Gosu::Font.new $window, "media/uni05_54-webfont.ttf", 60
     @small_font = Gosu::Font.new $window, "media/uni05_54-webfont.ttf", 40
