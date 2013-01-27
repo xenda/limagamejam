@@ -95,6 +95,7 @@ class Level < Chingu::GameState
 
    def restart
      restore_player_position
+     @hero.health = 100
    end
 
   def update
@@ -215,11 +216,11 @@ class Level < Chingu::GameState
   def draw
     @lifebar.x = self.viewport.x + 10;
     @lifebar.y = self.viewport.y + 10;
-    #$window.post_process(@bloom, @blur) do
+    $window.post_process(@bloom, @blur) do
       @parallax_collection.each do |parallax|
         parallax.draw
       end
-    #end
+    end
     
     super
     @font.draw_rel("MATUSITA", $window.width / 2 - 130, 160, 550, 0, 0.5)

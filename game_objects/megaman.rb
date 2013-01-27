@@ -8,9 +8,9 @@ class Megaman < Chingu::GameObject
     self.input = {
       :holding_left  => :move_to_left,
       :holding_right => :move_to_right,
-      [:holding_up, :holding_space, :z] => :jump,
-      [:holding_left_control,  :x] => :add_multiplier,
-      [:released_left_control, :x] => :remove_multiplier
+      [:holding_up, :holding_space, :holding_x] => :jump,
+      [:holding_left_control,  :holding_z] => :add_multiplier,
+      [:released_left_control, :released_z] => :remove_multiplier
     }
 
     @state = :normal
