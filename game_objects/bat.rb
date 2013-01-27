@@ -1,5 +1,5 @@
 class Bat < GameObject
-  trait :bounding_box, :debug => false #, :scale => 0.7
+  trait :bounding_box, :debug => true #, :scale => 0.7
   trait :collision_detection, :velocity
 
   attr_accessor :hunting, :heroReference, :direction

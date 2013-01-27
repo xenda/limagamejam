@@ -1,5 +1,5 @@
 class PassableBox < GameObject
-  trait :bounding_box, :debug => false
+  trait :bounding_box, :debug => true
   trait :collision_detection
 
   def self.solid

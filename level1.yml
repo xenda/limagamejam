@@ -24,7 +24,7 @@
     :factor_y: 1.0
     :alpha: 255
 - Platform:
-    :x: 860.0
+    :x: 871.0
     :y: 180.0
     :angle: 0
     :zorder: 100
@@ -56,7 +56,7 @@
     :factor_y: 1.0
     :alpha: 255
 - Platform:
-    :x: 330.0
+    :x: 341.0
     :y: 378.0
     :angle: 0
     :zorder: 100
@@ -80,7 +80,7 @@
     :factor_y: 1.0
     :alpha: 255
 - Platform:
-    :x: 216.0
+    :x: 227.0
     :y: 378.0
     :angle: 0
     :zorder: 100
@@ -89,14 +89,14 @@
     :alpha: 255
 - Saw:
     :x: 2124.0
-    :y: 180.0
-    :angle: 17366
+    :y: 178.5
+    :angle: 17623
     :zorder: 100
     :factor_x: 1.0
     :factor_y: 1.0
     :alpha: 255
 - Platform:
-    :x: 560.0
+    :x: 571.0
     :y: 288.0
     :angle: 0
     :zorder: 100
@@ -104,7 +104,7 @@
     :factor_y: 1.0
     :alpha: 255
 - Platform:
-    :x: 452.0
+    :x: 463.0
     :y: 289.0
     :angle: 0
     :zorder: 100
@@ -128,7 +128,7 @@
     :factor_y: 1.0
     :alpha: 255
 - Platform:
-    :x: 968.0
+    :x: 979.0
     :y: 180.0
     :angle: 0
     :zorder: 100
@@ -145,57 +145,17 @@
     :alpha: 255
 - Saw:
     :x: 3366.0
-    :y: 562.0
-    :angle: 214
+    :y: 560.5
+    :angle: 831
     :zorder: 100
     :factor_x: 1.0
     :factor_y: 1.0
     :alpha: 255
-- Floor:
-    :x: 3531.0
-    :y: 522.0
-    :angle: 0
-    :zorder: 100
-    :factor_x: 80.0
-    :factor_y: 1.0
-    :alpha: 255
 - Bat:
-    :x: 2358.0
-    :y: 90.0
-    :angle: 0
-    :zorder: 100
-    :factor_x: 1
-    :factor_y: 1
-    :alpha: 255
-- Bat:
-    :x: 234.0
+    :x: 236.0
     :y: 126.0
     :angle: 0
     :zorder: 100
     :factor_x: 1.0
     :factor_y: 1.0
-    :alpha: 255
-- Bat:
-    :x: 3060.0
-    :y: 216.0
-    :angle: 0
-    :zorder: 100
-    :factor_x: 1
-    :factor_y: 1
-    :alpha: 255
-- Floor:
-    :x: 702.0
-    :y: 270.0
-    :angle: 0
-    :zorder: 100
-    :factor_x: 1
-    :factor_y: 1
-    :alpha: 255
-- Bat:
-    :x: 4644.0
-    :y: 234.0
-    :angle: 0
-    :zorder: 100
-    :factor_x: 1
-    :factor_y: 1
     :alpha: 255
