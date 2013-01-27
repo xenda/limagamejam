@@ -8,10 +8,18 @@
     :factor_y: 1.0
     :alpha: 255
 - Doctor:
-    :x: 391.59999999999854
-    :y: 480.0
+    :x: 450.0
+    :y: 468.0
     :angle: 0
     :zorder: 300
-    :factor_x: 1.0
-    :factor_y: 1.0
+    :factor_x: 1
+    :factor_y: 1
+    :alpha: 255
+- Doctor:
+    :x: 576.0
+    :y: 468.0
+    :angle: 0
+    :zorder: 300
+    :factor_x: 1
+    :factor_y: 1
     :alpha: 255

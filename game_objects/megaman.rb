@@ -104,6 +104,16 @@ class Megaman < Chingu::GameObject
     self.y += y
   end
 
+  def hit_by(object)
+    #
+    # during() and then() is provided by the timer-trait
+    # flash red for 300 millisec when hit, then go back to normal
+    #
+    if [Doctor, Bat].include? object
+      during(100) { self.color = @red; self.mode = :additive }.then { self.color = @white; self.mode = :default }
+    end
+  end
+
   def die
     @died = true
     self.velocity_y = -2
