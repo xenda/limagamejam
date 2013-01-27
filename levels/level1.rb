@@ -24,9 +24,4 @@ class Level1 < Level
 
   end
 
-  def draw
-    super
-    
-  end
-
 end

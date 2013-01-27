@@ -4,13 +4,15 @@ class Level < Chingu::GameState
 
   traits :viewport, :timer
 
+  GAME_OBJECTS = [Saw, WoodFence, Pipe, Pipe2, BoxDouble, Platform, Doctor, SafeTree, GoalTree, EvilTree, Car, Floor, Bat]
+
   def initialize(options = {})
     super(options)
 
     self.viewport.game_area = [0, 0, 6035, 520]
 
     self.input = { :escape => :exit, :e => :edit, :holding_left_control => :enable_blur,
-      :released_left_control => :disable_blur }
+      :released_left_control => :disable_blur, :r => :restart }
 
     @bloom = Ashton::Shader.new fragment: :bloom
     @blur = Ashton::Shader.new fragment: :radial_blur
@@ -18,6 +20,7 @@ class Level < Chingu::GameState
     @bloom.glare_size = 0.05
     @bloom.power = 0.05
 
+    # GAME_OBJECTS.each(&:destroy_all)
     load_game_objects
 
     @parallax_collection = []
@@ -45,7 +48,8 @@ class Level < Chingu::GameState
     @parallax_collection << @third_parallax
     @parallax_collection << @fourth_parallax
 
-    @hero = Megaman.create(:x => 100, :y => 490)
+    @saved_x, @saved_y = [100, 494]
+    @hero = Megaman.create(:x => @saved_x, :y => @saved_y)
 
     @floor = Floor.create(:x => 0, :y => 520)
     @font = Gosu::Font.new $window, "media/uni05_54-webfont.ttf", 60
@@ -57,8 +61,7 @@ class Level < Chingu::GameState
     @music.play
     @timer = 100
     every(1000) { update_time }
-
-    
+    every(5000) { save_player_position }
    end
 
 
@@ -67,17 +70,32 @@ class Level < Chingu::GameState
    end
 
   def edit
-    push_game_state(GameStates::Edit.new(:grid => [18,18], :classes => [Saw, WoodFence, Pipe, Pipe2, BoxDouble, Platform, Doctor, GoalTree, EvilTree, Car, PassableBox, Floor, Bat]))
+    push_game_state(GameStates::Edit.new(:grid => [18,18], :classes => GAME_OBJECTS))
   end
 
    # def debug
    #   push_game_state(Chingu::GameStates::Debug.new({}))
    # end
 
+    def restore_player_position
+      @hero.x, @hero.y = @saved_x, @saved_y
+    end
+    
+    def save_player_position
+      @saved_x, @saved_y = @hero.x, @hero.y   if @hero.collidable && !@hero.jumping
+    end
+
+   def restart
+     restore_player_position
+   end
 
   def update
     super
     $gosu_blocks.clear if defined? $gosu_blocks # Workaround for Gosu bug (0.7.45)
+
+    # REMOVE THINGS
+    Bat.destroy_if { |bat| bat.outside_window? }
+    Doctor.destroy_if { |doctor| doctor.outside_window? }
 
     self.viewport.center_around(@hero)
 
@@ -117,9 +135,16 @@ class Level < Chingu::GameState
       # end
       me.direction = me.direction == :left ? :right : :left
       puts "Hit"
-      me.velocity_y = -9
-      @jumping = true
+      me.velocity_y = -7
+      # @jumping = true
 
+    end
+
+    @hero.each_collision(SafeTree) do |me, tree|
+      Bat.all.each do |bat| 
+        bat.hunting = false
+      end
+      @colliding = true
     end
 
     @hero.each_collision(GoalTree) do |me, tree|
@@ -130,6 +155,10 @@ class Level < Chingu::GameState
     @hero.each_collision(EvilTree) do |me, tree|
       me.health -= 0.15 unless me.health <= 30
       @colliding = true
+    end
+
+    if @hero.y > $window.height + 200
+      restore_player_position
     end
 
     if @colliding

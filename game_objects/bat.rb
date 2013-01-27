@@ -16,11 +16,10 @@ class Bat < GameObject
     @towards_x = rand(1) == 0 ? 1 : -1
     @towards_y = rand(1) == 0 ? 1 : -1
 
-    @animations = Animation.new(:file => "media/bat.png", :size => [50,46], :delay => 120);
+    @animations = Animation.new(:file => "media/vamp_fly_sprite.png", :size => [72,72], :delay => 120);
     @animations.frame_names = {
-    	:sleeping => 0, 
-    	:fly_left => 1..4, 
-    	:fly_right => 5..8 
+      :fly_left => 0..3,
+      :fly_right => 4..7
     }
 
     @image = @animations[@state]

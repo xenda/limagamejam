@@ -84,15 +84,15 @@ class Level1 < Chingu::GameState
     @fourth_parallax.camera_y = self.viewport.y - 110
     @fourth_parallax.update
 
-    @hero.each_collision(PassableBox) do |player, question_box|
-      if player.y.to_i <= question_box.bb.top.to_i + 5
-        player.velocity_y = 0
-        player.y = question_box.bb.top
-      elsif player.y.to_i <= question_box.bb.bottom.to_i
-        #monedas
-        player.velocity_y = +2
-      end
-    end
+    # @hero.each_collision(PassableBox) do |player, question_box|
+    #   if player.y.to_i <= question_box.bb.top.to_i + 5
+    #     player.velocity_y = 0
+    #     player.y = question_box.bb.top
+    #   elsif player.y.to_i <= question_box.bb.bottom.to_i
+    #     #monedas
+    #     player.velocity_y = +2
+    #   end
+    # end
   end
 
   def draw

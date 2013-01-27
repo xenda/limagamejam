@@ -37,7 +37,7 @@ class Megaman < Chingu::GameObject
 
     self.zorder = 300
     self.acceleration_y = 0.5
-    self.max_velocity = 10
+    self.max_velocity = 15
     self.rotation_center = :bottom_center
 
     update
@@ -48,6 +48,8 @@ class Megaman < Chingu::GameObject
   def current_animation
     @animations[@state][@direction]
   end
+
+
 
   def add_multiplier
     @multiplier = 2
@@ -93,8 +95,8 @@ class Megaman < Chingu::GameObject
 
     @state = :jump
     @jumping = true
-    self.velocity_y = -10*(@multiplier > 1 ? @multiplier/2 : @multiplier)
-    # self.velocity_y = -11
+    self.velocity_y = -10*(@multiplier > 1 ? 1.5 : @multiplier)
+    # self.velocity_y = -10
   end
 
   def move(x, y)
@@ -105,6 +107,7 @@ class Megaman < Chingu::GameObject
   def die
     @died = true
     self.velocity_y = -9
+    between(1,600) { self.velocity_y = 0; self.scale += 0.2; self.alpha -= 5; }
   end
 
   def winking

@@ -14,20 +14,20 @@ def media_path(file); File.expand_path "media/#{file}", File.dirname(__FILE__) e
 class MainWindow < Chingu::Window
   def initialize
     super 640, 480, false
-    Gosu::enable_undocumented_retrofication
+    # Gosu::enable_undocumented_retrofication
     self.caption = "Matusita"
-    self.factor = 2
+    # self.factor = 2
 
-    retrofy rescue nil
-    
+    # retrofy rescue nil
+
     self.input = {
       :escape => :exit
     }
   end
 
   def setup
-    retrofy
-    push_game_state(Level1)
+    # retrofy
+    switch_game_state(Level1)
   end
 
 end
