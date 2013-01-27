@@ -8,7 +8,8 @@ class Level0 < Level
     super
     @hero.each_collision(GoalTree) do |me, tree|
       me.jumping = true
-      switch_game_state(Level1)
+      #switch_game_state(Level1)
+      push_game_state(Chingu::GameStates::FadeTo.new(Level1.new, :speed => 10))
     end
   end
 
