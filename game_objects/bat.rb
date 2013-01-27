@@ -59,6 +59,7 @@ class Bat < GameObject
 
     end
 
+
     if @hunting && @heroReference
 
       yDistance = @heroReference.y - self.y;
@@ -76,7 +77,7 @@ class Bat < GameObject
       else
         @state = :fly_left
       end
-
+      
     else
 
       @y -= 1 if @y < @start_y

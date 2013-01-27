@@ -5,7 +5,7 @@ class Level < Chingu::GameState
   traits :viewport, :timer
   attr_accessor :game_object_map
 
-  GAME_OBJECTS = [Saw, WoodFence, Pipe, Pipe2, BoxDouble, Platform, Doctor, SafeTree, GoalTree, EvilTree, Car, Floor, Bat]
+  GAME_OBJECTS = [Saw, WoodFence, Pipe, Pipe2, BoxDouble, Platform, Doctor, SafeTree, GoalTree, EvilTree, Car, FloorMini, Bat]
 
   def initialize(options = {})
     super(options)
@@ -200,12 +200,13 @@ class Level < Chingu::GameState
 
     @lifebar.x = self.viewport.x + 10;
     @lifebar.y = self.viewport.y + 10;
-    $window.post_process(@bloom, @blur) do
+    #$window.post_process(@bloom, @blur) do
+    #$window.post_process(@bloom) do
       @parallax_collection.each do |parallax|
         parallax.draw
       end
       super
-    end
+    #end
 
 
     @font.draw_rel("MATUSITA", $window.width / 2 - 130, 160, 10, 0, 0.5)
