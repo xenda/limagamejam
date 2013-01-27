@@ -5,6 +5,8 @@ class Bat < GameObject
   attr_accessor :hunting, :heroReference, :direction
 
   def setup
+    @hunt_range = 400
+
     @speed_rondando = 1.0
     @speed_back     = 1.5
     @speed          = 2.0
@@ -20,7 +22,6 @@ class Bat < GameObject
     @bounding_x = [@x - 35+rand(10), @x + 35+rand(10)]
     @bounding_y = [@y - 25+rand(5), @y + 25 + rand(5)]
     @towards_x = rand(1) == 0 ? 1 : -1
-    @towards_y = rand(1) == 0 ? 1 : -1
 
     @zorder = 500
 
@@ -47,10 +48,13 @@ class Bat < GameObject
 
     if @heroReference
       
-      if Gosu::distance(@heroReference.x, @heroReference.y, self.x, self.y) < 200
+      if Gosu::distance(@heroReference.x, @heroReference.y, self.x, self.y) < @hunt_range
         @hunting = true if !@heroReference.resting
       else
-        @hunting = false
+        if @hunting
+          @hunting = false
+          @returning = true
+        end
       end
 
     end
@@ -59,6 +63,8 @@ class Bat < GameObject
     if @hunting && @heroReference
 
       if @heroReference.resting 
+        @returning = true
+        @hunting = false
         yDistance = @start_y - self.y;
         xDistance = @start_x - self.x;
       else
@@ -86,27 +92,25 @@ class Bat < GameObject
 
     else
 
-      # PATRULLANDO
+      if @returning
 
-      # limits X
-      if @x < @bounding_x.first
-        @direction = :right
-        @towards_x = 1
-        @state = :fly_right
+      else
+        # PATRULLANDO
+
+        if @x < @bounding_x.first
+          @direction = :right
+          @towards_x = 1
+          @state = :fly_right
+        end
+
+        if @x > @bounding_x.last
+          @direction = :left
+          @towards_x = -1
+          @state = :fly_left
+        end
+
+        move_x(@speed_rondando, @towards_x)
       end
-
-      if @x > @bounding_x.last
-        @direction = :left
-        @towards_x = -1
-        @state = :fly_left
-      end
-
-      # limits Y
-      @towards_y =  1 if @y < @bounding_y.first
-      @towards_y = -1 if @y > @bounding_y.last
-
-      move_x(@speed_rondando, @towards_x)
-
 
     end
 

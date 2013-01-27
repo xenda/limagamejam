@@ -135,10 +135,13 @@ class Level < Chingu::GameState
     end
 
     @hero.each_collision(Bat) do |me, bat|
+      puts "bat damage"
+      Gosu::Song.new($window, "media/damage.ogg").play
       me.health -= 0.2 unless me.health <= 15
     end
 
     @hero.each_collision(Doctor) do |me, doctor|
+      Gosu::Song.new($window, "media/damage.ogg").play
       me.health -= 0.2 unless me.health <= 15
       me.hit_by(doctor)
       # if me.direction == :right
