@@ -2,7 +2,7 @@ class Megaman < Chingu::GameObject
   trait :bounding_box, :scale => 0.8
   traits :timer, :collision_detection,  :velocity
 
-  attr_accessor :direction, :jumping, :health
+  attr_accessor :direction, :jumping, :health, :resting
 
   def setup
     self.input = {
@@ -16,6 +16,7 @@ class Megaman < Chingu::GameObject
     @state = :normal
     @direction = :right
 
+    @resting = false
     @health = 100
     @multiplier = 1
     @damage_per_turn = 1
@@ -94,7 +95,7 @@ class Megaman < Chingu::GameObject
     return if @jumping
 
     Gosu::Song.new($window, "media/buzzer.ogg").play
-    
+
     @state = :jump
     @jumping = true
     self.velocity_y = -10*(@multiplier > 1 ? 1.5 : @multiplier)
@@ -132,6 +133,8 @@ class Megaman < Chingu::GameObject
 
     @image = @animations[:normal][@direction].next
   end
+
+
 
   def idle?
     !(self.holding_any? :left, :right, :jump) && !@jumping
