@@ -32,24 +32,24 @@
     :factor_y: 1.0
     :alpha: 255
 - GoalTree:
-    :x: 2528.0
-    :y: 512.0
+    :x: 2016.0
+    :y: 504.0
     :angle: 0
     :zorder: 100
     :factor_x: 1.0
     :factor_y: 1.0
     :alpha: 255
 - Bat:
-    :x: 100.32253169386526
-    :y: 440.0015729306903
+    :x: 125.6412685083712
+    :y: -738.006061032671
     :angle: 0
     :zorder: 100
     :factor_x: 1.0
     :factor_y: 1.0
     :alpha: 255
 - Bat:
-    :x: 98.68067107468273
-    :y: 439.9900684987334
+    :x: 209.46789284661247
+    :y: -668.8315717700542
     :angle: 0
     :zorder: 100
     :factor_x: 1.0
@@ -64,8 +64,8 @@
     :factor_y: 1.0
     :alpha: 255
 - Bat:
-    :x: 349.38260423528874
-    :y: 360.7827845854657
+    :x: 508.5833355590265
+    :y: -1412.817355385406
     :angle: 0
     :zorder: 100
     :factor_x: 1.0
@@ -86,4 +86,36 @@
     :zorder: 100
     :factor_x: 1.0
     :factor_y: 1.0
+    :alpha: 255
+- Bat:
+    :x: 315.4619220940591
+    :y: -668.9527777708701
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Bat:
+    :x: 242.51195283676972
+    :y: -776.3072151085304
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Car:
+    :x: 216.0
+    :y: 288.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Doctor:
+    :x: 432.0
+    :y: 440.0
+    :angle: 0
+    :zorder: 300
+    :factor_x: 1
+    :factor_y: 1
     :alpha: 255
