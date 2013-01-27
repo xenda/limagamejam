@@ -82,7 +82,7 @@ class Megaman < Chingu::GameObject
 
     @direction = :right
 
-    if self.x < 2880
+    if self.x < 6035
       move(5*@multiplier, 0)
     end
     #@image = Image["doctor-right.png"]
