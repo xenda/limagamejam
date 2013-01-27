@@ -57,6 +57,8 @@ class Level < Chingu::GameState
     @music.play
     @timer = 100
     every(1000) { update_time }
+
+    
    end
 
 
