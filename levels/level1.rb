@@ -13,6 +13,7 @@ class Level1 < Level
 
    end
 
+
   def update
     super
 
@@ -21,6 +22,11 @@ class Level1 < Level
       # switch_game_state(Level1)
     end
 
+  end
+
+  def draw
+    super
+    
   end
 
 end
