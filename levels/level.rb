@@ -138,12 +138,14 @@ class Level < Chingu::GameState
     if !@hero.receiving_damage
       @hero.each_collision(Bat) do |me, bat|
         me.damaged = true
+        @lifebar.damage
       end
     end
 
     if !@hero.receiving_damage
       @hero.each_collision(Doctor) do |me, doctor|
         me.damaged = true
+        @lifebar.damage
       end
     end
 
@@ -206,11 +208,11 @@ class Level < Chingu::GameState
   def draw
     @lifebar.x = self.viewport.x + 10;
     @lifebar.y = self.viewport.y + 10;
-    $window.post_process(@bloom, @blur) do
+    #$window.post_process(@bloom, @blur) do
       @parallax_collection.each do |parallax|
         parallax.draw
       end
-    end
+    #end
     
     super
     @font.draw_rel("MATUSITA", $window.width / 2 - 130, 160, 550, 0, 0.5)

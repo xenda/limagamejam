@@ -149,8 +149,14 @@ class Megaman < Chingu::GameObject
   def die
     @died = true
     self.velocity_y = -2
+    self.input = {}
+
     # self.acceleration_y = 1
-    between(1000,12000) { self.velocity_y -= 1; self.scale += 5; self.alpha -= 25; }
+    between(1000, 12000) { 
+      self.velocity_y -= 1; 
+      self.scale += 1; 
+      self.alpha -= 1; 
+    }
   end
 
   def winking
