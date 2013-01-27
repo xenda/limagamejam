@@ -5,7 +5,7 @@ class Level < Chingu::GameState
   traits :viewport, :timer
   attr_accessor :game_object_map
 
-  GAME_OBJECTS = [Saw, WoodFence, Pipe, Pipe2, BoxDouble, Platform, Doctor, SafeTree, GoalTree, EvilTree, Car, FloorMini, Bat]
+  GAME_OBJECTS = [Saw, WoodFence, Pipe, Pipe2, BoxDouble, Platform, Doctor, SafeTree, GoalTree, EvilTree, Car, Floor, FloorMini, Bat]
 
   def initialize(options = {})
     super(options)
@@ -54,14 +54,14 @@ class Level < Chingu::GameState
     @saved_x, @saved_y = [100, 494]
     @hero = Megaman.create(:x => @saved_x, :y => @saved_y)
 
-    @floor = Floor.create(:x => 0, :y => 520)
+    @floor = Floor.create(:x => 0, :y => 530)
     @font = Gosu::Font.new $window, "media/uni05_54-webfont.ttf", 60
     @small_font = Gosu::Font.new $window, "media/uni05_54-webfont.ttf", 40
     @lifebar = BarLife.create(:x => 10, :y => 10)
     @lifebar.hero = @hero
 
     @music = Gosu::Song.new($window, "media/background2.wav")
-    @music.play
+    @music.play(true)
     @timer = 100
     every(1000) { update_time }
     every(5000) { save_player_position }
