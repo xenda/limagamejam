@@ -10,7 +10,7 @@ class Level < Chingu::GameState
   def initialize(options = {})
     super(options)
 
-    self.viewport.game_area = [0, 0, 6035, 550]
+    self.viewport.game_area = [0, 0, 6035, 520]
 
     self.input = { :escape => :exit, :e => :edit, :holding_left_control => :enable_blur,
       :released_left_control => :disable_blur, :r => :restart }
@@ -140,9 +140,11 @@ class Level < Chingu::GameState
         me.damaged = true
         @lifebar.damage
       end
-    end
+      
+      @hero.each_collision(Saw) do |me, bat|
+        me.damaged = true
+      end
 
-    if !@hero.receiving_damage
       @hero.each_collision(Doctor) do |me, doctor|
         me.damaged = true
         @lifebar.damage
