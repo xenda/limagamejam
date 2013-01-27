@@ -11,7 +11,9 @@ class Platform < GameObject
   end
 
   def setup
-    @direction = :right
+    
+    @direction = [:left,:right][ Random.rand(2).to_i ]
+
     @image = Image["box_single.png"]
     @bounding_x = [@x - 100, @x + 100]
     self.width  = 31
