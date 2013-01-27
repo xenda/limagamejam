@@ -1,5 +1,5 @@
 class Platform < GameObject
-  trait :bounding_box, scale: 0.8#, :debug => true
+  trait :bounding_box, scale: 0.8, :debug => true
   trait :collision_detection, :velocity
 
   attr_accessor :previous_x, :direction
@@ -19,7 +19,7 @@ class Platform < GameObject
     @image = Image["platform.png"]
     @bounding_x = [@x - 100, @x + 100]
     self.width  = 114
-    self.height = 38
+    self.height = 32
     self.rotation_center = :bottom_center
 
     cache_bounding_box

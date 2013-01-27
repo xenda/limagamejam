@@ -3,6 +3,7 @@ require 'ashton'
 class Level < Chingu::GameState
 
   traits :viewport, :timer
+  attr_accessor :game_object_map
 
   GAME_OBJECTS = [Saw, WoodFence, Pipe, Pipe2, BoxDouble, Platform, Doctor, SafeTree, GoalTree, EvilTree, Car, Floor, Bat]
 
@@ -23,6 +24,8 @@ class Level < Chingu::GameState
     # GAME_OBJECTS.each(&:destroy_all)
     load_game_objects
 
+
+    @game_object_map = GameObjectMap.new(:game_objects => Platform.all, :grid => @grid)
     @parallax_collection = []
 
     @parallax = Parallax.new(:x => 0, :y => 0, :rotation_center => :top_center)
@@ -117,7 +120,7 @@ class Level < Chingu::GameState
 
     # REGULAR COLLISIONS
     @hero.each_collision(Platform) do |player, question_box|
-      if player.y.to_i <= question_box.bb.top.to_i + 5
+      if player.y.to_i <= question_box.bb.top.to_i + 10
         player.velocity_y = 0
         player.y = question_box.bb.top
       elsif player.y.to_i <= question_box.bb.bottom.to_i
@@ -134,7 +137,7 @@ class Level < Chingu::GameState
       #   me.x = me.previous_x + 150
       # end
       me.direction = me.direction == :left ? :right : :left
-      puts "Hit"
+      # puts "Hit"
       me.velocity_y = -7
       # @jumping = true
 
