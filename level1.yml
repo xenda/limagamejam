@@ -1,31 +1,7 @@
 ---
 - Car:
-    :x: 576.0
-    :y: 416.0
-    :angle: 0
-    :zorder: 100
-    :factor_x: 1.0
-    :factor_y: 1.0
-    :alpha: 255
-- Car:
     :x: 1120.0
     :y: 416.0
-    :angle: 0
-    :zorder: 100
-    :factor_x: 1.0
-    :factor_y: 1.0
-    :alpha: 255
-- Car:
-    :x: 702.0
-    :y: 408.0
-    :angle: 0
-    :zorder: 100
-    :factor_x: 1.0
-    :factor_y: 1.0
-    :alpha: 255
-- Car:
-    :x: 832.0
-    :y: 408.0
     :angle: 0
     :zorder: 100
     :factor_x: 1.0
@@ -40,82 +16,114 @@
     :factor_y: 1.0
     :alpha: 255
 - Bat:
-    :x: 125.6412685083712
-    :y: -738.006061032671
+    :x: 205.0
+    :y: -1061.0
     :angle: 0
     :zorder: 100
     :factor_x: 1.0
     :factor_y: 1.0
     :alpha: 255
 - Bat:
-    :x: 209.46789284661247
-    :y: -668.8315717700542
-    :angle: 0
-    :zorder: 100
-    :factor_x: 1.0
-    :factor_y: 1.0
-    :alpha: 255
-- Car:
-    :x: 320.0
-    :y: 416.0
+    :x: 137.0
+    :y: -1061.0
     :angle: 0
     :zorder: 100
     :factor_x: 1.0
     :factor_y: 1.0
     :alpha: 255
 - Bat:
-    :x: 508.5833355590265
-    :y: -1412.817355385406
+    :x: 521.0
+    :y: -1421.0
     :angle: 0
     :zorder: 100
     :factor_x: 1.0
     :factor_y: 1.0
     :alpha: 255
 - EvilTree:
-    :x: 792.0
+    :x: 1584.0
     :y: 504.0
     :angle: 0
     :zorder: 100
     :factor_x: 1.0
     :factor_y: 1.0
     :alpha: 255
-- PassableBox:
-    :x: 627.0
-    :y: 313.0
+- Bat:
+    :x: 287.0
+    :y: -1061.0
     :angle: 0
     :zorder: 100
     :factor_x: 1.0
     :factor_y: 1.0
     :alpha: 255
 - Bat:
-    :x: 315.4619220940591
-    :y: -668.9527777708701
-    :angle: 0
-    :zorder: 100
-    :factor_x: 1.0
-    :factor_y: 1.0
-    :alpha: 255
-- Bat:
-    :x: 242.51195283676972
-    :y: -776.3072151085304
-    :angle: 0
-    :zorder: 100
-    :factor_x: 1.0
-    :factor_y: 1.0
-    :alpha: 255
-- Car:
-    :x: 216.0
-    :y: 288.0
+    :x: 197.0
+    :y: -1061.0
     :angle: 0
     :zorder: 100
     :factor_x: 1.0
     :factor_y: 1.0
     :alpha: 255
 - Doctor:
-    :x: 432.0
-    :y: 440.0
+    :x: -13072.49999999666
+    :y: 209602.5
     :angle: 0
     :zorder: 300
-    :factor_x: 1
-    :factor_y: 1
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Platform:
+    :x: 494.0
+    :y: 288.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- BoxDouble:
+    :x: 144.0
+    :y: 440.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Pipe:
+    :x: 360.0
+    :y: 441.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Pipe2:
+    :x: 720.0
+    :y: 440.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Platform:
+    :x: 432.0
+    :y: 288.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- WoodFence:
+    :x: 773.0
+    :y: 440.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- WoodFence:
+    :x: -144.0
+    :y: 440.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
     :alpha: 255

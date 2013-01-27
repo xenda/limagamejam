@@ -12,7 +12,6 @@ class PassableBox < GameObject
 
   def setup
     @image = Image["question-box.png"]
-    @color = Color.new(0xff808080)
     self.width = 32
     self.height = 32
     self.rotation_center = :bottom_left

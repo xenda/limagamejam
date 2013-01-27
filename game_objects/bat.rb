@@ -51,8 +51,8 @@ class Bat < GameObject
     end
 
     if @heroReference
-
-      if (@heroReference.x - self.x).abs < 200
+          
+      if Gosu::distance(@heroReference.x, @heroReference.y, self.x, self.y) < 100
         @hunting = true
       else
         @hunting = false

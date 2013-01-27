@@ -57,7 +57,7 @@ class Level < Chingu::GameState
    end
 
   def edit
-    push_game_state(GameStates::Edit.new(:grid => [72,72], :classes => [Doctor, GoalTree, EvilTree, Car, PassableBox, Floor, Bat]))
+    push_game_state(GameStates::Edit.new(:grid => [72,72], :classes => [WoodFence, Pipe, Pipe2, BoxDouble, Platform, Doctor, GoalTree, EvilTree, Car, PassableBox, Floor, Bat]))
   end
 
    # def debug
@@ -99,7 +99,7 @@ class Level < Chingu::GameState
     end
 
     @hero.each_collision(Bat, Doctor) do |me, tree|
-      me.health -= 1 unless me.health <= 15
+      me.health -= 0.2 unless me.health <= 15
       # if me.direction == :right
       #   me.x = me.previous_x - 150
       # else
