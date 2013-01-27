@@ -61,7 +61,7 @@ class Level < Chingu::GameState
     @lifebar.hero = @hero
 
     @music = Gosu::Song.new($window, "media/background2.wav")
-    @music.play
+    @music.play(true)
     @timer = 100
     every(1000) { update_time }
     every(5000) { save_player_position }
