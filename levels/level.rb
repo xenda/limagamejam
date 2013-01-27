@@ -10,7 +10,7 @@ class Level < Chingu::GameState
   def initialize(options = {})
     super(options)
 
-    self.viewport.game_area = [0, 0, 6035, 520]
+    self.viewport.game_area = [0, 0, 6035, 550]
 
     self.input = { :escape => :exit, :e => :edit, :holding_left_control => :enable_blur,
       :released_left_control => :disable_blur, :r => :restart }
@@ -124,36 +124,50 @@ class Level < Chingu::GameState
     @fourth_parallax.update
 
     # REGULAR COLLISIONS
-    @hero.each_collision(Platform) do |player, question_box|
-      if player.y.to_i <= question_box.bb.top.to_i + 10
+    @hero.each_collision(Platform) do |player, platform|
+      if player.y.to_i <= platform.bb.top.to_i + 10
         player.velocity_y = 0
-        player.y = question_box.bb.top
-      elsif player.y.to_i <= question_box.bb.bottom.to_i
+        player.y = platform.bb.top
+      elsif player.y.to_i <= platform.bb.bottom.to_i
         #monedas
         player.velocity_y = +2
       end
     end
 
-    @hero.each_collision(Bat) do |me, bat|
-      puts "bat damage"
-      Gosu::Song.new($window, "media/damage.ogg").play
-      me.health -= 0.2 unless me.health <= 15
+    if !@hero.receiving_damage
+      @hero.each_collision(Bat) do |me, bat|
+        #puts "bat damage"
+        Gosu::Song.new($window, "media/damage.ogg").play
+        me.health -= 0.2 unless me.health <= 15
+
+        #puts @hero.direction
+        #me.max_velocity = 10
+        #me.velocity_x  = -4
+        me.x -= me.width * 0.3
+        #bat.x += me.width * 0.3
+        me.damaged = true
+
+        me.velocity_y = -2
+      end
     end
 
-    @hero.each_collision(Doctor) do |me, doctor|
-      Gosu::Song.new($window, "media/damage.ogg").play
-      me.health -= 0.2 unless me.health <= 15
-      me.hit_by(doctor)
-      # if me.direction == :right
-      #   me.x = me.previous_x - 150
-      # else
-      #   me.x = me.previous_x + 150
-      # end
-      ##me.direction = me.direction == :left ? :right : :left
-      # puts "Hit"
-      me.velocity_y = -7
-      # @jumping = true
-
+    if !@hero.receiving_damage
+      @hero.each_collision(Doctor) do |me, doctor|
+        Gosu::Song.new($window, "media/damage.ogg").play
+        me.health -= 0.2 unless me.health <= 15
+        #me.velocity_x = -4
+        #me.hit_by(doctor) #cambio color al ser dañado
+        # if me.direction == :right
+        #   me.x = me.previous_x - 150
+        # else
+        #   me.x = me.previous_x + 150
+        # end
+        ##me.direction = me.direction == :left ? :right : :left
+        # puts "Hit"
+        me.velocity_y = -4
+        # @jumping = true
+        me.damaged = true
+      end
     end
 
     hero_resting = false

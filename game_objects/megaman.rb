@@ -2,8 +2,9 @@ class Megaman < Chingu::GameObject
   trait :bounding_box, :scale => 0.6, debug: true
   traits :timer, :collision_detection,  :velocity
 
-  attr_accessor :direction, :jumping, :health, :resting
+  attr_accessor :direction, :jumping, :health, :resting, :damaged, :receiving_damage
 
+  
   def setup
     self.input = {
       :holding_left  => :move_to_left,
@@ -12,6 +13,8 @@ class Megaman < Chingu::GameObject
       [:holding_left_control,  :x] => :add_multiplier,
       [:released_left_control, :x] => :remove_multiplier
     }
+
+    @receiving_damage = false
 
     @state = :normal
     @direction = :right
@@ -50,7 +53,28 @@ class Megaman < Chingu::GameObject
     @animations[@state][@direction]
   end
 
+  def damaged=(value)
 
+    
+    unless @receiving_damage
+    
+      during(100) { 
+          self.color = Gosu::Color.new(0xffff0000) 
+          self.mode = :additive 
+      }.then { 
+          self.color = Gosu::Color.new(0xffffffff)
+          self.mode = :default 
+      }
+      @receiving_damage = true 
+
+      after(1000){ 
+        @receiving_damage = false 
+        @damaged = false
+      } 
+  
+    end
+    
+  end
 
   def add_multiplier
     @multiplier = 2
