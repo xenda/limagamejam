@@ -7,7 +7,7 @@ class Level < Chingu::GameState
   def initialize(options = {})
     super(options)
 
-    self.viewport.game_area = [0, 0, 2835, 480]
+    self.viewport.game_area = [0, 0, 2835, 520]
 
     self.input = { :escape => :exit, :e => :edit, :holding_left_control => :enable_blur,
       :released_left_control => :disable_blur }
@@ -65,7 +65,7 @@ class Level < Chingu::GameState
    end
 
   def edit
-    push_game_state(GameStates::Edit.new(:grid => [72,72], :classes => [WoodFence, Pipe, Pipe2, BoxDouble, Platform, Doctor, GoalTree, EvilTree, Car, PassableBox, Floor, Bat]))
+    push_game_state(GameStates::Edit.new(:grid => [18,18], :classes => [Saw, WoodFence, Pipe, Pipe2, BoxDouble, Platform, Doctor, GoalTree, EvilTree, Car, PassableBox, Floor, Bat]))
   end
 
    # def debug
@@ -96,7 +96,7 @@ class Level < Chingu::GameState
     @fourth_parallax.update
 
     # REGULAR COLLISIONS
-    @hero.each_collision(PassableBox) do |player, question_box|
+    @hero.each_collision(Platform) do |player, question_box|
       if player.y.to_i <= question_box.bb.top.to_i + 5
         player.velocity_y = 0
         player.y = question_box.bb.top
@@ -136,8 +136,6 @@ class Level < Chingu::GameState
       disable_bloom
     end
 
-    @lifebar.x = self.viewport.x + 10;
-
     if ( @hero.health || @timer ) <= 0
       @hero.die
     end
@@ -173,6 +171,9 @@ class Level < Chingu::GameState
       super
     end
 
+    # @lifebar.x = self.viewport.x + 10;
+    # @lifebar.y = self.viewport.y + 10;
+    @lifebar.draw
     @font.draw_rel("MATUSITA", $window.width / 2 - 130, 160, 10, 0, 0.5)
     @small_font.draw_rel("Tiempo restante: #{@timer}", 10, 30, 10, 0, 0.5)
     @small_font.draw_rel("Vida: #{@hero.health.round}", $window.width - 160, 30 , 10, 0, 0.5)

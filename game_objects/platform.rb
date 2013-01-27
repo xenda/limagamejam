@@ -1,6 +1,8 @@
 class Platform < GameObject
-  trait :bounding_box, :debug => true
+  trait :bounding_box, :debug => true, scale: 0.8
   trait :collision_detection, :velocity
+
+  attr_accessor :previous_x, :direction
 
   def self.solid
     all.select { |block| block.alpha == 255 }
@@ -12,13 +14,13 @@ class Platform < GameObject
 
   def setup
     
-    @direction = [:left,:right][ Random.rand(2).to_i ]
+    @direction = :left #[:left,:right][ Random.rand(2).to_i ]
 
-    @image = Image["box_single.png"]
+    @image = Image["platform.png"]
     @bounding_x = [@x - 100, @x + 100]
-    self.width  = 31
-    self.height = 31
-    self.rotation_center = :bottom_left
+    self.width  = 114
+    self.height = 38
+    self.rotation_center = :bottom_center
 
     cache_bounding_box
   end

@@ -163,8 +163,9 @@ class Megaman < Chingu::GameObject
       end
     end
 
-    self.each_collision(PassableBox) do |me, stone_wall|
+    self.each_collision(Platform) do |me, stone_wall|
         @jumping = false
+        @x += ( stone_wall.direction == :left ) ? -1 : 1
         # me.y = stone_wall.bb.top-1
     end
 
