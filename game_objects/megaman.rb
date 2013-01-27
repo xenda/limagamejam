@@ -4,7 +4,6 @@ class Megaman < Chingu::GameObject
 
   attr_accessor :direction, :jumping, :health, :resting, :damaged, :receiving_damage
 
-  
   def setup
     self.input = {
       :holding_left  => :move_to_left,
@@ -14,13 +13,6 @@ class Megaman < Chingu::GameObject
       [:released_left_control, :released_z] => :remove_multiplier
     }
 
-    @receiving_damage = false
-
-    @state = :normal
-    @direction = :right
-
-    @resting = false
-    @health = 100
     @multiplier = 1
     @damage_per_turn = 1
 
@@ -34,19 +26,36 @@ class Megaman < Chingu::GameObject
     @animations[:jump] = Animation.new(:file => "media/char_002_sprite.png", :size => [72,72], :delay => 70);
     @animations[:jump].frame_names = { :left => 0..2, :right => 3..5 }
 
-    @image = current_animation.first
-
-    @jumping = false
-    @died = false
+    
 
     self.zorder = 100
     self.acceleration_y  = 0.5
     self.max_velocity    = 15
     self.rotation_center = :bottom_center
+    
+    
+    reset
+    @image = current_animation.first
 
     update
     cache_bounding_box
     every(1000){ take_damage unless idle? }
+  end
+
+  def reset
+    @receiving_damage = false
+
+    @state = :normal
+    @direction = :right
+
+    @resting = false
+    @health = 100
+
+    self.alpha = 255
+    self.scale = 1
+
+    @jumping = false
+    @died = false
   end
 
   def current_animation
@@ -147,16 +156,10 @@ class Megaman < Chingu::GameObject
   end
 
   def die
-    @died = true
-    self.velocity_y = -2
-    self.input = {}
+    return if @died
 
-    # self.acceleration_y = 1
-    between(1000, 12000) { 
-      self.velocity_y -= 1; 
-      self.scale += 1; 
-      self.alpha -= 1; 
-    }
+    @died = true
+    
   end
 
   def winking
@@ -202,22 +205,37 @@ class Megaman < Chingu::GameObject
       @image = @animations[@state][@direction].next!
     end
 
-    self.each_collision(Floor, FloorMini) do |me, block|
-      if self.velocity_y < 0
-        me.y = block.bb.bottom + me.image.height * self.factor_y
-        self.velocity_y = 0
-      else
-        unless @died
+
+    unless @died
+      
+      self.each_collision(Floor, FloorMini) do |me, block|
+        if self.velocity_y < 0
+          self.y = block.bb.bottom + self.image.height * self.factor_y
+          self.velocity_y = 0
+        else
           @jumping = false
-          me.y = block.bb.top
+          self.y = block.bb.top
         end
       end
-    end
 
-    self.each_collision(Platform) do |me, stone_wall|
-        @jumping = false
-        @x += ( stone_wall.direction == :left ) ? -1 : 1
-        # me.y = stone_wall.bb.top-1
+      self.each_collision(Platform) do |me, stone_wall|
+          @jumping = false
+          @x += ( stone_wall.direction == :left ) ? -1 : 1
+          # me.y = stone_wall.bb.top-1
+      end
+
+    else
+      puts "die"
+
+      self.alpha -= 0.02
+      self.scale += 0.02
+      self.velocity_y -= 2
+
+      after(500){
+        parent.restart
+        @died = false
+      }
+
     end
 
   end
