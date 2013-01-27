@@ -36,12 +36,12 @@ class Level < Chingu::GameState
 
     # @second_parallax.camera_y = self.viewport.game_area.last * -1
 
-    @third_parallax = Parallax.new(:x => 0, :y => 0, :rotation_center => :top_center)
+    @third_parallax = Parallax.new(:x => 0, :y => 0, :rotation_center => :top_left)
     @third_parallax << { :image => media_path("BG_002.png"), :damping => 2, :repeat_x => true, :repeat_y => false}
 
     @third_parallax.camera_y = self.viewport.game_area.last * -1
 
-    @fourth_parallax = Parallax.new(:x => 0, :y => 0, :rotation_center => :top_center)
+    @fourth_parallax = Parallax.new(:x => 0, :y => 0, :rotation_center => :top_left)
     @fourth_parallax << { :image => media_path("BG_001.png"), :damping => 1, :repeat_x => true, :repeat_y => false}
 
     @fourth_parallax.camera_y = self.viewport.game_area.last * -1
