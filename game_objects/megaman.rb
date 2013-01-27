@@ -104,7 +104,7 @@ class Megaman < Chingu::GameObject
 
   def die
     @died = true
-    self.velocity_y = -10
+    self.velocity_y = -9
   end
 
   def winking
@@ -163,8 +163,9 @@ class Megaman < Chingu::GameObject
       end
     end
 
-    self.each_collision(PassableBox) do |me, stone_wall|
+    self.each_collision(Platform) do |me, stone_wall|
         @jumping = false
+        @x += ( stone_wall.direction == :left ) ? -1 : 1
         # me.y = stone_wall.bb.top-1
     end
 
