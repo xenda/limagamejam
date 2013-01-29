@@ -1,5 +1,5 @@
 class Bat < GameObject
-  trait :bounding_box, :debug => false #, :scale => 0.7
+  trait :bounding_box, :debug => true, :scale => 0.4
   trait :collision_detection, :velocity
 
   attr_accessor :hunting, :heroReference, :direction
@@ -33,7 +33,7 @@ class Bat < GameObject
 
     @image = @animations[@state]
 
-    self.rotation_center = :top_center
+    self.rotation_center = :bottom_center
 
     self.input = {
     	:b => :bat_fly

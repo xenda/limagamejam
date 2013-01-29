@@ -8,19 +8,19 @@ Releasy::Project.new do
   version "0.0.1"
   verbose # Can be removed if you don't want to see all build messages.
 
-  executable "Main.rb"
-  files [ "game_objects/*.rb", "levels/*.rb", "lib/**/*.rb", "config/**/*.yml", "media/**/*.*"]
+  executable "Game.rb"
+  files ["level0.yml", "level1.yml", "Gemfile", "Gemfile.lock", "Game.rb", "game_objects/*.rb", "levels/*.rb", "lib/**/*.rb", "config/**/*.yml", "media/**/*.*"]
   # exposed_files ["Main.rb"]
   add_link "http://github.com/xenda/limagamejam", "GitHub"
   exclude_encoding # Applications that don't use advanced encoding (e.g. Japanese characters) can save build size with this.
 
   # Create a variety of releases, for all platforms.
-  # add_build :osx_app do
-  #   url "com.github.my_application"
-  #   wrapper "wrappers/gosu-mac-wrapper-0.7.41.tar.gz" # Assuming this is where you downloaded this file.
-  #   icon "media/icon.icns"
-  #   add_package :tar_gz
-  # end
+  add_build :osx_app do
+    url "http://github.com/xenda/limagamejam"
+    wrapper "gosu-mac-wrapper-0.7.44.tar.gz" # Assuming this is where you downloaded this file.
+    #icon "media/icon.icns"
+    add_package :tar_gz
+  end
 
   # add_build :source do
   #   add_package :"7z"

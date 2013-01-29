@@ -16,7 +16,7 @@
     :factor_y: 1.0
     :alpha: 255
 - Platform:
-    :x: 798.0
+    :x: 626.0
     :y: 180.0
     :angle: 0
     :zorder: 100
@@ -48,7 +48,7 @@
     :factor_y: 1.0
     :alpha: 255
 - Platform:
-    :x: 268.0
+    :x: 96.0
     :y: 378.0
     :angle: 0
     :zorder: 100
@@ -72,7 +72,7 @@
     :factor_y: 1.0
     :alpha: 255
 - Platform:
-    :x: 154.0
+    :x: -18.0
     :y: 378.0
     :angle: 0
     :zorder: 100
@@ -80,15 +80,15 @@
     :factor_y: 1.0
     :alpha: 255
 - Saw:
-    :x: 2286.0
-    :y: 300.5
-    :angle: 23898
+    :x: 2268.0
+    :y: 252.0
+    :angle: 29572
     :zorder: 100
     :factor_x: 1.0
     :factor_y: 1.0
     :alpha: 255
 - Platform:
-    :x: 498.0
+    :x: 326.0
     :y: 288.0
     :angle: 0
     :zorder: 100
@@ -96,7 +96,7 @@
     :factor_y: 1.0
     :alpha: 255
 - Platform:
-    :x: 390.0
+    :x: 218.0
     :y: 289.0
     :angle: 0
     :zorder: 100
@@ -120,7 +120,7 @@
     :factor_y: 1.0
     :alpha: 255
 - Platform:
-    :x: 906.0
+    :x: 734.0
     :y: 180.0
     :angle: 0
     :zorder: 100
@@ -137,15 +137,15 @@
     :alpha: 255
 - Saw:
     :x: 3366.0
-    :y: 600.0
-    :angle: 7106
+    :y: 619.0
+    :angle: 12780
     :zorder: 100
     :factor_x: 1.0
     :factor_y: 1.0
     :alpha: 255
 - Bat:
-    :x: 278.2694891741241
-    :y: 348.5776203811195
+    :x: 265.93296170510365
+    :y: 154.02994916902347
     :angle: 0
     :zorder: 500
     :factor_x: 1.0
@@ -257,8 +257,8 @@
     :alpha: 255
 - Saw:
     :x: 990.0
-    :y: 518.0
-    :angle: 4771
+    :y: 537.0
+    :angle: 10445
     :zorder: 100
     :factor_x: 1.0
     :factor_y: 1.0
@@ -288,7 +288,7 @@
     :factor_y: 0.49869451697127937
     :alpha: 255
 - Platform:
-    :x: 3507.0
+    :x: 3335.0
     :y: 306.0
     :angle: 0
     :zorder: 100
@@ -296,7 +296,7 @@
     :factor_y: 1.0
     :alpha: 255
 - Platform:
-    :x: 3615.0
+    :x: 3443.0
     :y: 306.0
     :angle: 0
     :zorder: 100
@@ -304,7 +304,7 @@
     :factor_y: 1.0
     :alpha: 255
 - Platform:
-    :x: 3802.0
+    :x: 3630.0
     :y: 234.0
     :angle: 0
     :zorder: 100
@@ -312,7 +312,7 @@
     :factor_y: 1.0
     :alpha: 255
 - Platform:
-    :x: 3910.0
+    :x: 3738.0
     :y: 234.0
     :angle: 0
     :zorder: 100
@@ -336,7 +336,7 @@
     :factor_y: 1.0
     :alpha: 254
 - Platform:
-    :x: 4108.0
+    :x: 3936.0
     :y: 288.0
     :angle: 0
     :zorder: 100
@@ -353,8 +353,8 @@
     :alpha: 255
 - Saw:
     :x: 4176.0
-    :y: 486.0
-    :angle: 4692
+    :y: 505.0
+    :angle: 10366
     :zorder: 100
     :factor_x: 1.0
     :factor_y: 1.0
@@ -400,7 +400,7 @@
     :factor_y: 1.0
     :alpha: 255
 - Platform:
-    :x: 4839.0
+    :x: 4667.0
     :y: 342.0
     :angle: 0
     :zorder: 100
@@ -408,7 +408,7 @@
     :factor_y: 1.0
     :alpha: 255
 - Platform:
-    :x: 4965.0
+    :x: 4793.0
     :y: 252.0
     :angle: 0
     :zorder: 100
@@ -416,7 +416,7 @@
     :factor_y: 1.0
     :alpha: 255
 - Platform:
-    :x: 5076.0
+    :x: 4904.0
     :y: 252.0
     :angle: 0
     :zorder: 100
@@ -424,7 +424,7 @@
     :factor_y: 1.0
     :alpha: 255
 - Platform:
-    :x: 5253.0
+    :x: 5081.0
     :y: 324.0
     :angle: 0
     :zorder: 100
@@ -441,63 +441,63 @@
     :alpha: 255
 - Saw:
     :x: 5598.0
-    :y: 267.5
-    :angle: 1957
+    :y: 286.5
+    :angle: 7631
     :zorder: 100
     :factor_x: 1.0
     :factor_y: 1.0
     :alpha: 255
 - Bat:
-    :x: 4904.0
-    :y: 360.0
+    :x: 4845.7813585243875
+    :y: 219.32733242131573
     :angle: 0
     :zorder: 500
     :factor_x: 1.0
     :factor_y: 1.0
     :alpha: 255
 - Bat:
-    :x: 5118.0
-    :y: 324.0
+    :x: 4829.716119376148
+    :y: 219.34767528140983
     :angle: 0
     :zorder: 500
     :factor_x: 1.0
     :factor_y: 1.0
     :alpha: 255
 - Bat:
-    :x: 5012.0
-    :y: 396.0
+    :x: 4881.727474294843
+    :y: 219.34413443174566
     :angle: 0
     :zorder: 500
     :factor_x: 1.0
     :factor_y: 1.0
     :alpha: 255
 - Doctor:
-    :x: -81.90000000000487
-    :y: 2476.5
+    :x: -2446.849999999682
+    :y: 99800.5
     :angle: 0
     :zorder: 300
     :factor_x: 1.0
     :factor_y: 1.0
     :alpha: 255
 - Bat:
-    :x: 2691.0
-    :y: 270.0
+    :x: 2787.7911908474666
+    :y: 366.7046942385179
     :angle: 0
     :zorder: 500
     :factor_x: 1.0
     :factor_y: 1.0
     :alpha: 255
 - Bat:
-    :x: 2599.0
-    :y: 288.0
+    :x: 2751.819689764777
+    :y: 366.6906220118958
     :angle: 0
     :zorder: 500
     :factor_x: 1.0
     :factor_y: 1.0
     :alpha: 255
 - Doctor:
-    :x: 5503.0499999995645
-    :y: 482.0
+    :x: 3138.099999998351
+    :y: 490.0
     :angle: 0
     :zorder: 300
     :factor_x: 1.0
@@ -512,10 +512,42 @@
     :factor_y: 1.0
     :alpha: 255
 - Lights:
-    :x: 2729.0
-    :y: 310.0
+    :x: 2772.0
+    :y: 306.0
     :angle: 0
     :zorder: 100
-    :factor_x: 1
-    :factor_y: 1
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Saw:
+    :x: 2556.0
+    :y: 36.0
+    :angle: 1890
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Bat:
+    :x: 2721.0
+    :y: 180.0
+    :angle: 0
+    :zorder: 500
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Bat:
+    :x: 2661.0
+    :y: 252.0
+    :angle: 0
+    :zorder: 500
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Bat:
+    :x: 2545.0
+    :y: 323.0
+    :angle: 0
+    :zorder: 500
+    :factor_x: 1.0
+    :factor_y: 1.0
     :alpha: 255
