@@ -1,7 +1,6 @@
+require 'bundler/setup' # Releasy requires require that your application uses bundler.
 require 'chingu'
 require 'ashton'
-require 'bundler/setup' # Releasy requires require that your application uses bundler.
-require 'releasy'
 
 include Gosu
 include Chingu

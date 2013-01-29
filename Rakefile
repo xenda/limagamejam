@@ -1,4 +1,3 @@
-require 'rubygems'
 require 'bundler/setup' # Releasy requires require that your application uses bundler.
 require 'releasy'
 
